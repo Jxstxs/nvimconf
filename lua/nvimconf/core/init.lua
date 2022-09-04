@@ -37,7 +37,7 @@ import("dressing", require("nvimconf.modules.dressing"))
 import("nvimconf.modules.rnvimr")
 
 -- Key Stuff
-import("keystack", require("nvimconf.modules.keystack"))
+-- import("keystack", require("nvimconf.modules.keystack"))
 import("legendary", require("nvimconf.modules.legendary"))
 import("which-key", require("nvimconf.modules.whichkey"))
 
