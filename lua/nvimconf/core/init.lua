@@ -30,7 +30,7 @@ import("cmp", require("lua.nvimconf.modules.cmp"))
 -- Ui Stuff
 import("bufferline", require("nvimconf.modules.bufferline"))
 import("indent_blankline", require("nvimconf.modules.indent"))
-import("hlars", require("nvimconf.modules.hlargs"))
+import("hlargs", require("nvimconf.modules.hlargs"))
 import("dressing", require("nvimconf.modules.dressing"))
 
 -- Rnvimr
