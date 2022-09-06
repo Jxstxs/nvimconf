@@ -1,6 +1,6 @@
 local M = {}
 
-local servers = {
+M.servers = {
 	"lemminx", -- xml
 	"vimls", -- vim script
 	"sqlls", -- sql
