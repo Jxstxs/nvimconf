@@ -15,6 +15,9 @@ end
 _import.config(require("nvimconf.modules.import"))
 local import = _import.import
 
+-- Impatient Loading for fast times
+
+
 -- Theme
 import("catppuccin", require("nvimconf.modules.colorscheme"))
 vim.cmd [[colorscheme catppuccin]]
