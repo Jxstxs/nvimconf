@@ -1,3 +1,5 @@
+local keys = require("nvimconf.modules.keymap").keys
+
 return function(legendary)
 	legendary.setup({
 		-- Include builtins by default, set to false to disable
@@ -41,8 +43,8 @@ return function(legendary)
 			-- you can put which-key.nvim tables here,
 			-- or alternatively have them auto-register,
 			-- see section on which-key integration
-			mappings = {},
-			opts = {},
+			mappings = keys.n.mappings,
+			opts = keys.n.opts,
 			-- controls whether legendary.nvim actually binds they keymaps,
 			-- or if you want to let which-key.nvim handle the bindings.
 			-- if not passed, true by default
@@ -50,7 +52,7 @@ return function(legendary)
 		},
 		-- Automatically add which-key tables to legendary
 		-- see "which-key.nvim Integration" below for more details
-		auto_register_which_key = true,
+		auto_register_which_key = false,
 		-- settings for the :LegendaryScratch command
 		scratchpad = {
 			-- configure how to show results of evaluated Lua code,
