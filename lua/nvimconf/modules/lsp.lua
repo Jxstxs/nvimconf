@@ -104,8 +104,10 @@ M.manson_lspconfig = function(mlsp)
 	})
 end
 
-M.lspconfig = function(lspc)
-	lspc.setup({})
+M.lspconfig = function (lspc)
+    for _, server in ipairs(M.servers) then
+        lspc[server].setup({})
+    end
 end
 
 M.lspsaga = function(lsps)
