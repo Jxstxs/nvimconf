@@ -21,8 +21,8 @@ nmap({
     -- {"<C-L>", cmd("vertical resize +2"), opts},
 
     -- Buffer Navigation
-    {"<S-h>", cmd("bnext"), opts},
-    {"<S-l>", cmd("bprevious"), opts},
+    -- {"<S-h>", cmd("bnext"), opts},
+    -- {"<S-l>", cmd("bprevious"), opts},
 })
 
 vmap({
