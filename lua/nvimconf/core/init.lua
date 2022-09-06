@@ -13,6 +13,7 @@ end
 
 -- Configure Import
 _import.config(require("nvimconf.modules.import"))
+local import = _import.import
 
 -- Theme
 import("catppuccin", require("nvimconf.modules.colorscheme"))
