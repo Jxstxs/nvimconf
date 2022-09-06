@@ -38,3 +38,4 @@ vim.opt.fillchars.eob=" "
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
+vim.opt.guifont = "monospace:h6"               -- the font used in graphical neovim applications
