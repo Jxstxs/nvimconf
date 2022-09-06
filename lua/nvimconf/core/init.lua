@@ -17,16 +17,7 @@ local import = _import.import
 
 -- Theme
 import("catppuccin", require("nvimconf.modules.colorscheme"))
-vim.cmd([[colorscheme catppuccin]])
-
--- Lsp Stuff
--- import("mason", require("nvimconf.modules.lsp").manson)
--- import("manson-lspconfig", require("nvimconf.modules.lsp").manson_lspconfig)
--- import("lspconfig", require("nvimconf.modules.lsp").lspconfig)
--- import("lspsaga", require("nvimconf.modules.lsp").lspconfig)
-
--- Cmp Stuff
-import("cmp", require("lua.nvimconf.modules.cmp"))
+vim.cmd [[colorscheme catppuccin]]
 
 -- Ui Stuff
 import("bufferline", require("nvimconf.modules.bufferline"))
@@ -48,3 +39,12 @@ import("git-worktree", require("nvimconf.modules.worktree"))
 
 -- Plugins
 import("nvimconf.modules.plugins")
+-- Lsp Stuff
+-- import("mason", require("nvimconf.modules.lsp").manson)
+-- import("manson-lspconfig", require("nvimconf.modules.lsp").manson_lspconfig)
+-- import("lspconfig", require("nvimconf.modules.lsp").lspconfig)
+-- import("lspsaga", require("nvimconf.modules.lsp").lspsaga)
+
+-- Cmp Stuff
+-- import("cmp", require("lua.nvimconf.modules.cmp"))
+
