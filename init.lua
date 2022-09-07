@@ -1,4 +1,3 @@
-
 -- Init the Config
 local status, _ = pcall(require, "nvimconf.core")
 if not status then
