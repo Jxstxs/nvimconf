@@ -1,4 +1,4 @@
-local excluded_filetypes = {"md"}
+local excluded_filetypes = { "md" }
 
 return function(hlargs)
 	hlargs.setup({

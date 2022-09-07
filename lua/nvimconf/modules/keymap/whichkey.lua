@@ -1,4 +1,4 @@
-local keys = require("nvimconf.modules.keymap")
+local keys = require("nvimconf.modules.keymap.keymap")
 
 return function(whichkey)
 	whichkey.setup({
@@ -67,7 +67,7 @@ return function(whichkey)
 		},
 	})
 
-    -- Register Mappings
-    whichkey.register(keys.keys.n.mappings, keys.keys.n.opts)
-    whichkey.register(keys.keys.v.mappings, keys.keys.v.opts)
+	-- Register Mappings
+	whichkey.register(keys.keys.n.mappings, keys.keys.n.opts)
+	whichkey.register(keys.keys.v.mappings, keys.keys.v.opts)
 end

@@ -1,4 +1,4 @@
-local keys = require("nvimconf.modules.keymap").keys
+local keys = require("nvimconf.modules.keymap.keymap").keys
 
 return function(legendary)
 	legendary.setup({

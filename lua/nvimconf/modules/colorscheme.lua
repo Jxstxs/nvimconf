@@ -33,4 +33,6 @@ return function(catppuccin)
 		color_overrides = {},
 		highlight_overrides = {},
 	})
+
+	vim.cmd([[colorscheme catppuccin]])
 end
