@@ -34,7 +34,7 @@ M.keys = {
 			Q = { cmd("q!"), "Quit Nvim" },
 			h = { cmd("nohl"), "Clear Highlights" },
 			e = { cmd("RnvimrToggle"), "Ranger" },
-			E = { cmd("NeoTreeShowToggle"), "Neotree" },
+			E = { cmd("NvimTreeToggle"), "Neotree" },
 			c = { cmd("lua require('Comment.api').toggle_current_linewise()"), "Comment" },
 			-- m = { push_stack("page_moving"), "Movement" },
 		},
