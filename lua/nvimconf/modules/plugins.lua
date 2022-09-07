@@ -75,8 +75,11 @@ return packer.startup(function(use)
 	use({ "kevinhwang91/nvim-ufo" }) -- IDK really
 
 	-- Telescope
-    use({ "BurntSushi/ripgrep" }) -- No Config
-    use({'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' })
+	use({ "BurntSushi/ripgrep" }) -- No Config
+	use({
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	})
 	use({ "nvim-telescope/telescope.nvim" }) -- Not even Done
 
 	-- Key related
