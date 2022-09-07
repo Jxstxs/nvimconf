@@ -36,7 +36,6 @@ import("nvimconf.modules.git.lazygit")
 -- Keymap
 import("keystack", require("nvimconf.modules.keymap.keystack"))
 import("which-key", require("nvimconf.modules.keymap.whichkey"))
-import("legendary", require("nvimconf.modules.keymap.legendary"))
 
 -- Lsp
 import("mason", require("nvimconf.modules.lsp.mason"))
