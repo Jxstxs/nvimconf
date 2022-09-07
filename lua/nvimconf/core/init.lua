@@ -55,6 +55,7 @@ import("dressing", require("nvimconf.modules.ui.dressing"))
 import("telescope", require("nvimconf.modules.ui.telescope"))
 import("alpha", require("nvimconf.modules.ui.alpha"))
 import("project_nvim", require("nvimconf.modules.ui.project"))
+import("lualine", require("nvimconf.modules.ui.lualine"))
 
 -- Writing
 import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
