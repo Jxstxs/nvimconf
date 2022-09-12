@@ -25,8 +25,9 @@ return function(cmp)
 			-- { name = 'luasnip' }, -- For luasnip users.
 			{ name = "path" },
 			{ name = "nvim_lsp_signature_help" },
-			{ name = "spell" },
-			{ name = "emoji" },
+			-- { name = "spell" },
+			-- { name = "emoji" },
+			-- { name = "copilot" },
 		}),
 
 		--	enabled = function()
