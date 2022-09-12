@@ -50,7 +50,7 @@ return packer.startup(function(use)
 	use({ "glepnir/lspsaga.nvim" }) -- Config Configure
 
 	-- Cmp Stuff
-	use({ "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/nvim-cmp" }) -- Not even Done
 	use({ "hrsh7th/cmp-path" })
 	use({ "f3fora/cmp-spell" })
 	use({ "hrsh7th/cmp-nvim-lsp-signature-help" })
@@ -59,8 +59,13 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-emoji" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-buffer" })
+    use({ "zbirenbaum/copilot-cmp", module = "copilot_cmp" })
 	-- use({ "tzachar/cmp-tabnine", commit = "f2ea9c0824d389d588966c64c146d324138a443c" })
 	use({ "petertriho/cmp-git" })
+
+    -- copilot
+    use({ "zbirenbaum/copilot.lua" })
+    -- use({ "github/copilot.vim" })
 
 	-- Ui Stuff
 	use({ "akinsho/bufferline.nvim" }) -- Config Complete
@@ -93,6 +98,7 @@ return packer.startup(function(use)
 	-- Writing Stuff
 	use({ "windwp/nvim-autopairs" }) -- Config Complete
 	use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }) -- Config Complete (still need to watch at new releases)
+    use({ "windwp/nvim-ts-autotag" })
 
 	-- Wakatime
 	use({ "wakatime/vim-wakatime" }) -- No Config Needed
