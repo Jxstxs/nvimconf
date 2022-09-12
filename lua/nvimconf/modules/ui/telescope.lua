@@ -48,4 +48,6 @@ return function(telescope)
 
 	-- loading the fzf extensions
 	require("telescope").load_extension("fzf")
+    -- loading the git_worktree extension
+	require("telescope").load_extension("git_worktree")
 end
