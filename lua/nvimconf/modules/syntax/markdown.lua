@@ -1,6 +1,6 @@
 return function(markdown)
-	vim.g.vim_markdown_folding_disabled = 1
-	vim.g.vim_markdown_folding_style_pythonic = 1
+	vim.g.vim_markdown_folding_disabled = 0
+	vim.g.vim_markdown_folding_style_pythonic = 0
 	vim.g.vim_markdown_override_foldtext = 0
 	vim.g.vim_markdown_folding_level = 6
 	vim.g.vim_markdown_no_default_key_mappings = 1
@@ -16,7 +16,7 @@ return function(markdown)
 	vim.g.vim_markdown_toml_frontmatter = 1
 	vim.g.vim_markdown_json_frontmatter = 1
 	vim.g.vim_markdown_strikethrough = 1
-	vim.g.vim_markdown_new_list_item_indent = 2
+	vim.g.vim_markdown_new_list_item_indent = 0
 	vim.g.vim_markdown_no_extensions_in_markdown = 1
 	vim.g.vim_markdown_autowrite = 1
 	vim.g.vim_markdown_auto_extension_ext = "txt"
