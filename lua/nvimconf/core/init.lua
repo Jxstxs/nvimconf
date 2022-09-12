@@ -13,6 +13,7 @@ end
 
 -- Configure Import
 _import.config(require("nvimconf.modules.import"))
+-- Safely Requires an Module and shows some Extra Information
 local import = _import.import
 
 -- Impatient Loading for fast times
@@ -60,8 +61,10 @@ import("treesitter-context", require("nvimconf.modules.ui.ts-context"))
 
 -- Writing
 import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
+import("nvim-ts-autotag", require("nvimconf.modules.writing.autotag"))
 import("Comment", require("nvimconf.modules.writing.comment"))
 import("cmp", require("nvimconf.modules.writing.cmp"))
+import("copilot", require("nvimconf.modules.writing.copilot"))
 
 -- Plugins
 import("nvimconf.modules.plugins")

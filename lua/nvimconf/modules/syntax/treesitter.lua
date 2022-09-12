@@ -1,5 +1,8 @@
 return function(ts)
 	require("nvim-treesitter.configs").setup({
+        autotag = {
+            enable = true
+        },
 		-- A list of parser names, or "all"
 		ensure_installed = {
 			"bash",
@@ -15,7 +18,7 @@ return function(ts)
 			"json5",
 			"lua",
 			"make",
-			"markdown",
+			-- "markdown",
 			-- "markdown_inline",
 			"php",
 			"python",
@@ -31,7 +34,7 @@ return function(ts)
 		sync_install = true,
 
 		-- Automatically install missing parsers when entering buffer
-		auto_install = true,
+		auto_install = false,
 
 		-- List of parsers to ignore installing (for "all")
 		ignore_install = {},
