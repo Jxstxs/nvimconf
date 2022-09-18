@@ -23,6 +23,8 @@ return function(cmp)
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
 			-- { name = 'luasnip' }, -- For luasnip users.
+            { name = "buffer" },
+            { name = "nvim_lua" },
 			{ name = "path" },
 			{ name = "nvim_lsp_signature_help" },
 			-- { name = "spell" },
