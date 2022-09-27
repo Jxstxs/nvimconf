@@ -31,7 +31,7 @@ M.keys = {
         mappings = {
             -- Base
             w = { cmd("w!"), "Save" },
-            q = { cmd("Bdelete!"), "Close Buffer" },
+            q = { cmd("bdelete!"), "Close Buffer" },
             Q = { cmd("q!"), "Quit Nvim" },
             h = { cmd("nohl"), "Clear Highlights" },
             e = { cmd("RnvimrToggle"), "Ranger" },
