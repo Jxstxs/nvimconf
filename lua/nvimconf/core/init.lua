@@ -64,7 +64,7 @@ import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
 import("nvim-ts-autotag", require("nvimconf.modules.writing.autotag"))
 import("Comment", require("nvimconf.modules.writing.comment"))
 import("cmp", require("nvimconf.modules.writing.cmp"))
-import("copilot", require("nvimconf.modules.writing.copilot"))
+-- import("copilot", require("nvimconf.modules.writing.copilot"))
 
 -- Plugins
 import("nvimconf.modules.plugins")
