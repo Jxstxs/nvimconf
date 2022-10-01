@@ -43,7 +43,7 @@ M.keys = {
             -- Lsp Stuff
             l = {
                 name = "Lsp",
-                f = { cmd("lua vim.lsp.buf.formatting()"), "Format Buffer" },
+                f = { cmd("lua vim.lsp.buf.format({async=true})"), "Format Buffer" },
                 D = { cmd("Lspsaga preview_definition"), "Preview Definition" },
                 a = { cmd("Lspsaga code_action"), "Code Actions" },
                 h = { cmd("Lspsaga hover_doc"), "Documentation" },
