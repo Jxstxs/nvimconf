@@ -106,7 +106,7 @@ return packer.startup(function(use)
 	-- Own plugins
 	use({ "/home/julius/.gits/personal/nvim-plugs/keystack.nvim" }) -- Not even Done
 	-- use { "/home/julius/gits/personal/nvim-plugs/mdbook.nvim" }
-	use({ "/home/julius/.gits/personal/nvim-plugs/jaw.nvim/tt" }) -- Still Development
+	use({ "/home/julius/.gits/personal/nvim-plugs/jaw.nvim/mn" }) -- Still Development
 
 	-- Snippet Stuff
 	use({ "L3MON4D3/LuaSnip" }) -- Not even Done
