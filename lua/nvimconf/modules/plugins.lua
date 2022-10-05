@@ -114,7 +114,8 @@ return packer.startup(function(use)
     -- use({ "SirVer/ultisnips", commit = "4f5249b2a6f6308377cb2bf734974a4e6f8a960e" })
 
     -- Markdown Stuff
-    use({ "preservim/vim-markdown" }) -- Config Base
+    -- use({ "preservim/vim-markdown" }) -- Config Base
+    use({ "tpope/vim-markdown" })
     use({ "jbyuki/venn.nvim" })
     use({ "dhruvasagar/vim-table-mode" })
 
