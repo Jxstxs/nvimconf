@@ -43,6 +43,7 @@ M.keys = {
             -- Lsp Stuff
             l = {
                 name = "Lsp",
+                r = { cmd("lua vim.lsp.buf.rename()"), "Rename" },
                 f = { cmd("lua vim.lsp.buf.format({async=true})"), "Format Buffer" },
                 D = { cmd("Lspsaga preview_definition"), "Preview Definition" },
                 a = { cmd("Lspsaga code_action"), "Code Actions" },
@@ -84,6 +85,7 @@ M.keys = {
             -- Finder Stuff
             f = {
                 name = "Finder",
+                t = { cmd("TodoTelescope"), "Find Todos" },
                 f = { cmd("Telescope find_files"), "Find Files" },
                 h = { cmd("Telescope help_tags"), "Help Tags" },
                 g = { cmd("Telescope lige_grep"), "Live Grep" },
