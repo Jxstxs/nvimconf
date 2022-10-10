@@ -59,12 +59,16 @@ import("project_nvim", require("nvimconf.modules.ui.project"))
 import("lualine", require("nvimconf.modules.ui.lualine"))
 import("treesitter-context", require("nvimconf.modules.ui.ts-context"))
 import("todo-comments", require("nvimconf.modules.ui.todo-comments"))
+import("noice", require("nvimconf.modules.ui.noice"))
+import("notify") --, require("nvimconf.modules.ui.noice"))
+import("ufo") --, require("nvimconf.modules.ui.noice"))
 
 -- Writing
 import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
 import("nvim-ts-autotag", require("nvimconf.modules.writing.autotag"))
 import("Comment", require("nvimconf.modules.writing.comment"))
 import("cmp", require("nvimconf.modules.writing.cmp"))
+import("neogen", require("nvimconf.modules.writing.neogen"))
 -- import("copilot", require("nvimconf.modules.writing.copilot"))
 
 -- Plugins
