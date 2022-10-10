@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd({ "User" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "gitcommit", "markdown" },
     callback = function()
+        vim.cmd [[ TSDisable highlight ]]
         vim.cmd [[ syntax on ]]
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
