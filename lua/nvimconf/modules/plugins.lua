@@ -77,8 +77,11 @@ return packer.startup(function(use)
     use({ "goolord/alpha-nvim" }) -- Config Complete
     use({ "nvim-lualine/lualine.nvim" }) -- Config Complete
     use({ "nvim-treesitter/nvim-treesitter-context" }) -- Config Complete
-    use({ "kevinhwang91/nvim-ufo" }) -- IDK really
+    use({ "kevinhwang91/nvim-ufo", requires = 'kevinhwang91/promise-async' }) -- IDK really
     use({ "folke/todo-comments.nvim" }) -- Todo Comments
+    use({ "folke/noice.nvim" })
+    use({ "rcarriga/nvim-notify" })
+    use({ "MunifTanjim/nui.nvim" })
 
     -- Telescope
     use({ "BurntSushi/ripgrep" }) -- No Config
@@ -100,6 +103,7 @@ return packer.startup(function(use)
     use({ "windwp/nvim-autopairs" }) -- Config Complete
     use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }) -- Config Complete (still need to watch at new releases)
     use({ "windwp/nvim-ts-autotag" })
+    use({ "danymat/neogen" })
 
     -- Wakatime
     use({ "wakatime/vim-wakatime" }) -- No Config Needed
