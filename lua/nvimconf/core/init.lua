@@ -61,7 +61,7 @@ import("treesitter-context", require("nvimconf.modules.ui.ts-context"))
 import("todo-comments", require("nvimconf.modules.ui.todo-comments"))
 import("noice", require("nvimconf.modules.ui.noice"))
 import("notify") --, require("nvimconf.modules.ui.noice"))
-import("ufo") --, require("nvimconf.modules.ui.noice"))
+import("ufo", require("nvimconf.modules.ui.ufo"))
 
 -- Writing
 import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
