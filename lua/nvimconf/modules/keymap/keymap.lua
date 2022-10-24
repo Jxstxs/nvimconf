@@ -6,6 +6,8 @@ local cmd = key.cmd
 local opts = key.opts({ silent = true })
 
 nmap({
+
+
     { "<S-h>", cmd("BufferLineCyclePrev"), opts },
     { "<S-l>", cmd("BufferLineCycleNext"), opts },
 })
@@ -86,9 +88,11 @@ M.keys = {
             f = {
                 name = "Finder",
                 t = { cmd("TodoTelescope"), "Find Todos" },
+                b = { cmd("Telescope buffers"), "Find Buffers" },
                 f = { cmd("Telescope find_files"), "Find Files" },
                 h = { cmd("Telescope help_tags"), "Help Tags" },
-                g = { cmd("Telescope lige_grep"), "Live Grep" },
+                n = { cmd("Telescope notify"), "Notifications" },
+                g = { cmd("Telescope live_grep"), "Live Grep" },
                 p = { cmd("Telescope projects"), "Projects" },
                 m = { cmd("Telescope marks"), "Marks" },
                 M = { cmd("Telescope man_pages"), "Man Pages" },
@@ -120,7 +124,12 @@ M.keys = {
             noremap = true,
             nowait = false,
         },
-        mappings = {},
+        mappings = {
+            c = { "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+            --     -- a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" },
+            a = { "<cmd><C-U>Lspsaga range_code_action<CR>", "Code Actions" },
+            f = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format" },
+        },
     },
 }
 
