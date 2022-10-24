@@ -105,6 +105,9 @@ return packer.startup(function(use)
     use({ "windwp/nvim-ts-autotag" })
     use({ "danymat/neogen" })
 
+    -- cheat.sh
+    use({ "dbeniamine/cheat.sh-vim" })
+
     -- Wakatime
     use({ "wakatime/vim-wakatime" }) -- No Config Needed
 
