@@ -29,6 +29,7 @@ return packer.startup(function(use)
     use({ "kyazdani42/nvim-web-devicons" })
     use({ "JoosepAlviste/nvim-ts-context-commentstring" })
     use({ "nvim-treesitter/nvim-treesitter" }) -- Config Complete
+    use({ "nvim-treesitter/playground" })
 
     -- Safe imports
     use({ "miversen33/import.nvim" }) -- Config Complete
@@ -101,7 +102,7 @@ return packer.startup(function(use)
 
     -- Writing Stuff
     use({ "windwp/nvim-autopairs" }) -- Config Complete
-    use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }) -- Config Complete (still need to watch at new releases)
+    use({ "numToStr/Comment.nvim" --[[ , ]] --[[ commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" ]] }) -- Config Complete (still need to watch at new releases)
     use({ "windwp/nvim-ts-autotag" })
     use({ "danymat/neogen" })
 
