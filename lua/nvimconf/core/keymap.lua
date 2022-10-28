@@ -15,10 +15,10 @@ nmap({
 	{ "<C-l>", "<C-w>l", opts },
 
 	-- Resizing Windows
-	-- {"<C-H>", cmd("resize -2"), opts},
-	-- {"<C-J>", cmd("resize +2"), opts},
-	-- {"<C-K>", cmd("vertical resize -2"), opts},
-	-- {"<C-L>", cmd("vertical resize +2"), opts},
+	{"<A-j>", cmd("resize -2"), opts},
+	{"<A-k>", cmd("resize +2"), opts},
+	{"<A-l>", cmd("vertical resize -2"), opts},
+	{"<A-h>", cmd("vertical resize +2"), opts},
 
 	-- Buffer Navigation
 	-- {"<S-h>", cmd("bnext"), opts},
