@@ -38,7 +38,8 @@ M.keys = {
             h = { cmd("nohl"), "Clear Highlights" },
             e = { cmd("RnvimrToggle"), "Ranger" },
             E = { cmd("NvimTreeToggle"), "Neotree" },
-            c = { cmd("lua require('Comment.api').toggle_current_linewise()"), "Comment" },
+            --[[ c = { cmd("lua require('Comment.api').toggle_current_linewise()"), "Comment" }, ]]
+            c = { cmd("normal gcc"), "Comment" },
             m = { cmd("lua require('keystack').push('page_moving')"), "Movement" },
             d = { cmd("Lspsaga lsp_finder"), "Definition and Reference" },
 
