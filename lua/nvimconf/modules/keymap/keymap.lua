@@ -126,8 +126,9 @@ M.keys = {
             nowait = false,
         },
         mappings = {
-            c = { "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
-            --     -- a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" },
+            --[[ c = { "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" }, ]]
+            c = { "gb", "Comment" },
+            -- a = { "<cmd>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" },
             a = { "<cmd><C-U>Lspsaga range_code_action<CR>", "Code Actions" },
             f = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format" },
         },
