@@ -114,6 +114,7 @@ return packer.startup(function(use)
 
     -- Own plugins
     use({ "Jxstxs/keystack.nvim" }) -- Not even Done
+    use({ "Jxstxs/conceal.nvim" }) -- Not even Done
 
     -- Snippet Stuff
     use({ "L3MON4D3/LuaSnip" }) -- Not even Done
@@ -128,6 +129,8 @@ return packer.startup(function(use)
     -- Extra Stuff (School)
     use({ "itchyny/calendar.vim" }) -- Need some time
     use({ "uga-rosa/translate.nvim" }) -- IDK
+
+    --[[ use({ "/home/julius/.repos/personal/projects/nvim-plugins/conceal.nvim/"}) ]]
 
     if packer_bootstrap then
         packer.sync()
