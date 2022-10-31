@@ -91,6 +91,7 @@ return packer.startup(function(use)
         run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     })
     use({ "nvim-telescope/telescope.nvim" }) -- Not even Done
+    use({ "ziontee113/icon-picker.nvim" })
 
     -- Key related
     use({ "folke/which-key.nvim" }) -- Config Complete
@@ -114,7 +115,7 @@ return packer.startup(function(use)
 
     -- Own plugins
     use({ "Jxstxs/keystack.nvim" }) -- Not even Done
-    use({ "Jxstxs/conceal.nvim" }) -- Not even Done
+    use { "Jxstxs/conceal.nvim", requires = "nvim-treesitter/nvim-treesitter" }
 
     -- Snippet Stuff
     use({ "L3MON4D3/LuaSnip" }) -- Not even Done
