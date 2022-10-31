@@ -62,6 +62,7 @@ import("todo-comments", require("nvimconf.modules.ui.todo-comments"))
 import("noice", require("nvimconf.modules.ui.noice"))
 import("notify") --, require("nvimconf.modules.ui.noice"))
 import("ufo", require("nvimconf.modules.ui.ufo"))
+import("icon-picker", require("nvimconf.modules.ui.icon-picker"))
 
 -- Writing
 import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
