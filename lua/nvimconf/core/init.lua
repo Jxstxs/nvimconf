@@ -1,7 +1,3 @@
--- Load Nvim Options and Keys
-require("nvimconf.core.options")
-require("nvimconf.core.keymap")
-
 -- Check for Safe Import
 local status, _import = pcall(require, "import")
 -- if not found install plugins
@@ -72,6 +68,10 @@ import("cmp", require("nvimconf.modules.writing.cmp"))
 import("neogen", require("nvimconf.modules.writing.neogen"))
 -- import("copilot", require("nvimconf.modules.writing.copilot"))
 import("nvimconf.modules.cheat_sh")
+
+-- Load Nvim Options and Keys
+require("nvimconf.core.options")
+require("nvimconf.core.keymap")
 
 -- Plugins
 import("nvimconf.modules.plugins")
