@@ -39,6 +39,7 @@ return packer.startup(function(use)
 
     -- Theme
     use({ "catppuccin/nvim", as = "catppuccin" }) -- Config Complete
+    use({ "Yazeed1s/oh-lucy.nvim" })
 
     -- File Management / Ranger
     use({ "kevinhwang91/rnvimr" }) -- Config Complete
