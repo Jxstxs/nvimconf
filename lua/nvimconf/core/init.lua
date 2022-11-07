@@ -2,9 +2,18 @@
 local status, _import = pcall(require, "import")
 -- if not found install plugins
 if not status then
-	require("nvimconf.modules.plugins")
-	require("packer").sync()
-	return
+    require("nvimconf.modules.plugins")
+    require("packer").sync()
+    return
+end
+
+local set_theme = function(theme)
+    if theme ~= nil then
+        local theme_status, _ = pcall(require, "nvimconf.modules.colorshemes." .. theme)
+        if theme_status == nil then
+            vim.notify("[Config] ERROR: Cannot load theme: " .. theme, vim.log.levels.ERROR)
+        end
+    end
 end
 
 -- Configure Import
@@ -16,8 +25,8 @@ local import = _import.import
 import("impatient", require("nvimconf.modules.impatient"))
 
 -- Theme
-import("catppuccin", require("nvimconf.modules.colorscheme"))
---
+set_theme("oh-lucy")
+
 -- Autocommands
 import("nvimconf.modules.autocommands")
 
