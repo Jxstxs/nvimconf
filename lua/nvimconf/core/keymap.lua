@@ -15,20 +15,15 @@ nmap({
 	{ "<C-l>", "<C-w>l", opts },
 
 	-- Resizing Windows
-	{"<A-j>", cmd("resize -2"), opts},
-	{"<A-k>", cmd("resize +2"), opts},
-	{"<A-l>", cmd("vertical resize -2"), opts},
-	{"<A-h>", cmd("vertical resize +2"), opts},
-
-	-- Buffer Navigation
-	-- {"<S-h>", cmd("bnext"), opts},
-	-- {"<S-l>", cmd("bprevious"), opts},
+	{"<A-J>", cmd("resize -2"), opts},
+	{"<A-K>", cmd("resize +2"), opts},
+	{"<A-L>", cmd("vertical resize -2"), opts},
+	{"<A-H>", cmd("vertical resize +2"), opts},
 })
 
 vmap({
 	-- Better paste
 	{ "p", '"_dP', opts },
-
 	-- Better Indentations
 	{ "<", "<gv", opts },
 	{ ">", ">gv", opts },
@@ -37,7 +32,6 @@ vmap({
 imap({
 	-- Quit Insert Mode
 	{ "jj", "<ESC>", opts },
-
 	-- Easier Movement
 	{ "<C-h>", "<Left>", opts },
 	{ "<C-j>", "<Down>", opts },
