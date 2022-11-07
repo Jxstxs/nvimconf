@@ -2,13 +2,26 @@ local M = {}
 
 local key = require("nvimconf.core.keys")
 local nmap = key.nmap
+local vmap = key.vmap
 local cmd = key.cmd
 local opts = key.opts({ silent = true })
 
 nmap({
     { "<S-h>", cmd("BufferLineCyclePrev"), opts },
     { "<S-l>", cmd("BufferLineCycleNext"), opts },
+
+    { "<A-h>", cmd("MoveHChar(-1)"), opts},
+    { "<A-l>", cmd("MoveHChar(1)"), opts},
+    { "<A-j>", cmd("MoveLine(1)"), opts},
+    { "<A-k>", cmd("MoveLine(-1)"), opts},
 })
+
+--[[ vmap({ ]]
+    --[[ { "<A-h>", cmd("MoveHBlock(-1)"), opts}, ]]
+    --[[ { "<A-l>", cmd("MoveHBlock(1)"), opts}, ]]
+    --[[ { "<A-j>", cmd("MoveBlock(1)"), opts}, ]]
+    --[[ { "<A-k>", cmd("MoveBlock(-1)"), opts}, ]]
+--[[ }) ]]
 
 local reload_module = function()
     vim.ui.input({ prompt = "Reload: " }, function(input)
@@ -40,6 +53,7 @@ M.keys = {
             c = { cmd("normal gcc"), "Comment" },
             m = { cmd("lua require('keystack').push('page_moving')"), "Movement" },
             d = { cmd("Lspsaga lsp_finder"), "Definition and Reference" },
+            T = { cmd("Twilight"), "Toggle Twilight" },
 
             -- Lsp Stuff
             l = {
