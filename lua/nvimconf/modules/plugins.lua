@@ -84,6 +84,7 @@ return packer.startup(function(use)
     use({ "folke/noice.nvim" })
     use({ "rcarriga/nvim-notify" })
     use({ "MunifTanjim/nui.nvim" })
+    use({ "folke/twilight.nvim" })
 
     -- Telescope
     use({ "BurntSushi/ripgrep" }) -- No Config
@@ -107,6 +108,7 @@ return packer.startup(function(use)
     use({ "numToStr/Comment.nvim" --[[ , ]] --[[ commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" ]] }) -- Config Complete (still need to watch at new releases)
     use({ "windwp/nvim-ts-autotag" })
     use({ "danymat/neogen" })
+    use({ "fedepujol/move.nvim" })
 
     -- cheat.sh
     use({ "dbeniamine/cheat.sh-vim" })

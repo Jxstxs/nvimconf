@@ -68,6 +68,7 @@ import("noice", require("nvimconf.modules.ui.noice"))
 import("notify") --, require("nvimconf.modules.ui.noice"))
 import("ufo", require("nvimconf.modules.ui.ufo"))
 import("icon-picker", require("nvimconf.modules.ui.icon-picker"))
+import("twilight", require("nvimconf.modules.ui.twilight"))
 
 -- Writing
 import("nvim-autopairs", require("nvimconf.modules.writing.autopairs"))
