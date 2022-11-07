@@ -6,8 +6,6 @@ local cmd = key.cmd
 local opts = key.opts({ silent = true })
 
 nmap({
-
-
     { "<S-h>", cmd("BufferLineCyclePrev"), opts },
     { "<S-l>", cmd("BufferLineCycleNext"), opts },
 })
@@ -80,9 +78,25 @@ M.keys = {
             },
 
             -- Usefull for Plugin Dev
-            u = {
+            U = {
                 name = "Plugin Dev",
                 r = { reload_module, "Reload Module" },
+            },
+
+            -- Ufo Folds
+            u = {
+                name = "Ufo",
+                p = {
+                    function()
+                        local winid = require('ufo').peekFoldedLinesUnderCursor()
+                        if not winid then vim.lsp.buf.hover() end
+                    end, "Peek Lines"
+                },
+                o = { function() require("ufo").openAllFolds() end, "Open All Folds" },
+                c = {
+                    function() require("ufo").closeAllFolds() end,
+                    "Close All Folds"
+                }
             },
 
             -- Finder Stuff
