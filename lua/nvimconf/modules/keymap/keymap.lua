@@ -2,7 +2,7 @@ local M = {}
 
 local key = require("nvimconf.core.keys")
 local nmap = key.nmap
-local vmap = key.vmap
+--[[ local vmap = key.vmap ]]
 local cmd = key.cmd
 local opts = key.opts({ silent = true })
 
