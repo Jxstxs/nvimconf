@@ -109,6 +109,10 @@ return packer.startup(function(use)
     use({ "windwp/nvim-ts-autotag" })
     use({ "danymat/neogen" })
     use({ "fedepujol/move.nvim" })
+    use({ "nvim-neorg/neorg" })
+    use({ "nvim-neorg/neorg-telescope" })
+    use({ "Pocco81/TrueZen.nvim" })
+
 
     -- cheat.sh
     use({ "dbeniamine/cheat.sh-vim" })
