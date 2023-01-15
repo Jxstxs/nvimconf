@@ -15,6 +15,7 @@ M.servers = {
 	"clangd", -- c, c++
 	"bashls", -- bash
 	"awk_ls", -- awk
+    "pasls"
 }
 
 return M
