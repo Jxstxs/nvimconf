@@ -78,6 +78,7 @@ import("cmp", require("nvimconf.modules.writing.cmp"))
 import("neogen", require("nvimconf.modules.writing.neogen"))
 -- import("copilot", require("nvimconf.modules.writing.copilot"))
 import("nvimconf.modules.cheat_sh")
+import("neorg", require("nvimconf.modules.writing.neorg"))
 
 -- Load Nvim Options and Keys
 require("nvimconf.core.options")
