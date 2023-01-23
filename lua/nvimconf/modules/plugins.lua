@@ -139,6 +139,13 @@ return packer.startup(function(use)
     use({ "uga-rosa/translate.nvim" }) -- IDK
 
     --[[ use({ "/home/julius/.repos/personal/projects/nvim-plugins/conceal.nvim/"}) ]]
+    use({ "ludovicchabant/vim-gutentags" })
+    use({ "paopaol/telescope-ctags.nvim" })
+
+    use({"LudoPinelli/comment-box.nvim"})
+    use({"CKolkey/ts-node-action"})
+    use({"debugloop/telescope-undo.nvim"})
+    use({"andrewferrier/debugprint.nvim"})
 
     if packer_bootstrap then
         packer.sync()
