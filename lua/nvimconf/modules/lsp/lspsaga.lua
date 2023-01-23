@@ -1,5 +1,5 @@
 return function(lsps)
-	lsps.init_lsp_saga({
+	lsps.setup({
 		-- Options with default value
 		-- "single" | "double" | "rounded" | "bold" | "plus"
 		border_style = "single",
