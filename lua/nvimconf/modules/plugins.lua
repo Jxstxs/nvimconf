@@ -118,7 +118,7 @@ return packer.startup(function(use)
     use({ "dbeniamine/cheat.sh-vim" })
 
     -- Wakatime
-    use({ "wakatime/vim-wakatime" }) -- No Config Needed
+    --[[ use({ "wakatime/vim-wakatime" }) -- No Config Needed ]]
 
     -- Own plugins
     use({ "Jxstxs/keystack.nvim" }) -- Not even Done
