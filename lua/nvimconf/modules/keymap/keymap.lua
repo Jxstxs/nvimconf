@@ -142,6 +142,21 @@ M.keys = {
                     C = { cmd("Telescope git_bcommits"), "Buffer Commits" },
                 },
             },
+
+            n = {
+                name = "Neorg Functions",
+                e = {
+                    name = "Export",
+                    f = { function() require("nvimconf.modules.norg").exp_file(true) end, "Current File"},
+                    F = { function() require("nvimconf.modules.norg").exp_file(false) end, "File"},
+                    d = { function() require("nvimconf.modules.norg").exp_dir(true) end, "Current Workspace"},
+                    D = { function() require("nvimconf.modules.norg").exp_dir(false) end, "Workspace"},
+                },
+                i = {
+                    name = "Insert",
+                    t = { function() require("nvimconf.modules.norg").ins_tab() end, "Table"},
+                },
+            },
         },
     },
     v = {
