@@ -24,4 +24,13 @@ return function(norg)
             ["core.norg.manoeuvre"] = { config = {} },
         }
     })
+
+    require("nvimconf.modules.norg.scholr").setup({
+        export_dirs = {
+            share = "~/.repos/personal/scholr/share/",
+        },
+        std = {
+            export =  "~/.repos/personal/scholr/share/",
+        },
+    })
 end
