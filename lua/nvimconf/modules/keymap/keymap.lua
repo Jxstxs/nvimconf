@@ -147,10 +147,10 @@ M.keys = {
                 name = "Neorg Functions",
                 e = {
                     name = "Export",
-                    f = { function() require("nvimconf.modules.norg").exp_file(true) end, "Current File"},
-                    F = { function() require("nvimconf.modules.norg").exp_file(false) end, "File"},
-                    d = { function() require("nvimconf.modules.norg").exp_dir(true) end, "Current Workspace"},
-                    D = { function() require("nvimconf.modules.norg").exp_dir(false) end, "Workspace"},
+                    f = { function() require("nvimconf.modules.norg.scholr").exp_file(true) end, "Current File"},
+                    F = { function() require("nvimconf.modules.norg.scholr").exp_file(false) end, "File"},
+                    d = { function() require("nvimconf.modules.norg.scholr").exp_dir(true) end, "Current Workspace"},
+                    D = { function() require("nvimconf.modules.norg.scholr").exp_dir(false) end, "Workspace"},
                 },
                 i = {
                     name = "Insert",
