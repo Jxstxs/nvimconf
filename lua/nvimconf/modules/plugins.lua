@@ -112,6 +112,7 @@ return packer.startup(function(use)
     use({ "nvim-neorg/neorg" })
     use({ "nvim-neorg/neorg-telescope" })
     use({ "Pocco81/TrueZen.nvim" })
+    use({ "Exafunction/codeium.vim" })
 
 
     -- cheat.sh
@@ -142,10 +143,10 @@ return packer.startup(function(use)
     use({ "ludovicchabant/vim-gutentags" })
     use({ "paopaol/telescope-ctags.nvim" })
 
-    use({"LudoPinelli/comment-box.nvim"})
-    use({"CKolkey/ts-node-action"})
-    use({"debugloop/telescope-undo.nvim"})
-    use({"andrewferrier/debugprint.nvim"})
+    use({ "LudoPinelli/comment-box.nvim" })
+    use({ "CKolkey/ts-node-action" })
+    use({ "debugloop/telescope-undo.nvim" })
+    use({ "andrewferrier/debugprint.nvim" })
 
     if packer_bootstrap then
         packer.sync()
