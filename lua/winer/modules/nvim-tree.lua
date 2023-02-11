@@ -1,5 +1,10 @@
+local m = require("winer.utils").map
+
 return {
     "nvim-tree/nvim-tree.lua",
+    keys = {
+        { m.ld("e"), function() vim.cmd("NvimTreeToggle") end, desc = "Toggl[e] NvimTree" },
+    },
     config = function()
         local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
@@ -14,7 +19,6 @@ return {
             open_on_setup = false,
             open_on_setup_file = false,
             open_on_tab = false,
-            -- ignore_buf_on_tab_change = {},
             sort_by = "name",
             -- root_dirs = {},
             -- prefer_startup_root = false,
@@ -43,17 +47,13 @@ return {
                         { key = "v", cb = tree_cb("vsplit") },
                     },
                 },
-                -- float = {
-                -- enable = false,
-                -- open_win_config = {
-                -- relative = "editor",
-                -- border = "rounded",
-                -- width = 30,
-                -- height = 30,
-                -- row = 1,
-                -- col = 1,
-                -- },
-                -- },
+                float = {
+                    enable = true,
+                    open_win_config = {
+                        relative = "editor",
+                        border = "rounded",
+                    },
+                },
             },
             renderer = {
                 add_trailing = false,
@@ -65,7 +65,7 @@ return {
                 -- indent_width = 2,
                 indent_markers = {
                     enable = false,
-                    -- inline_arrows = true,
+                    inline_arrows = true,
                     icons = {
                         corner = "└",
                         edge = "│",
@@ -88,7 +88,7 @@ return {
                     glyphs = {
                         default = "",
                         symlink = "",
-                        -- bookmark = "",
+                        bookmark = "",
                         folder = {
                             arrow_closed = "",
                             arrow_open = "",
@@ -111,7 +111,6 @@ return {
                     },
                 },
                 special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-                -- symlink_destination = true,
             },
             hijack_directories = {
                 enable = true,
@@ -119,7 +118,7 @@ return {
             },
             update_focused_file = {
                 enable = false,
-                -- update_root = false,
+                update_root = true,
                 ignore_list = {},
             },
             ignore_ft_on_setup = {},
@@ -130,7 +129,6 @@ return {
             diagnostics = {
                 enable = true,
                 show_on_dirs = true,
-                -- debounce_delay = 50,
                 icons = {
                     hint = "",
                     info = "",
