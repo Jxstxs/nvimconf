@@ -1,7 +1,6 @@
-
 return {
     "williamboman/mason.nvim",
-    lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
@@ -20,9 +19,10 @@ return {
             ensure_installed = require("winer.lsps"),
             automatic_installation = true,
         })
+
         local nl = require("null-ls")
         nl.setup({
-            sources = {nl.builtins.completion.spell}
+            sources = { nl.builtins.code_actions.gitsigns }
         })
     end
 }
