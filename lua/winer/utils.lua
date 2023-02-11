@@ -1,34 +1,23 @@
 local ks = vim.keymap.set
-local dopts = {}
+
+local dopts = {
+    silent = true
+}
 
 local M = {
     map = {
         n = function(lhs, rhs, opts)
-            ks("n", lhs, rhs, opts or dopts)
+            ks("n", lhs, rhs, vim.tbl_deep_extend("force", dopts, opts or {}))
         end,
         i = function(lhs, rhs, opts)
-            ks("i", lhs, rhs, opts or dopts)
+            ks("i", lhs, rhs, vim.tbl_deep_extend("force", dopts, opts or {}))
         end,
         v = function(lhs, rhs, opts)
-            ks("v", lhs, rhs, opts or dopts)
+            ks("v", lhs, rhs, vim.tbl_deep_extend("force", dopts, opts or {}))
         end,
-        cmd = function(_cmd) return ":" .. _cmd .. "<CR>" end
+        cmd = function(_cmd) return ":" .. _cmd .. "<CR>" end,
+        ld = function(_lhs) return "<leader>" .. _lhs end,
     },
-    toggle_lazygit = function()
-        if lgT == nil then
----@diagnostic disable-next-line: lowercase-global
-            lgT = require("toggleterm.terminal").Terminal:new({
----@diagnostic disable-next-line: undefined-global
-                cmd = "lazygit -p " .. vim.fn.getcwd(),
-                hidden = true,
-                direction = "float",
-                float_opts = {
-                    border = "double",
-                }
-            })
-        end
-        lgT:toggle()
-    end
 }
 
 return M
