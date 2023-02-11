@@ -1,3 +1,20 @@
+math.randomseed(os.time())
+
+local section = function(opts)
+    local defaults = {
+        icon = ' ',
+        icon_hl = 'Title',
+        desc = '',
+        desc_hl = 'String',
+        key = '',
+        keymap = '',
+        key_hl = 'Number',
+        action = ''
+    }
+
+    return vim.tbl_deep_extend("force", defaults, opts)
+end
+
 return {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
@@ -5,38 +22,38 @@ return {
         require('dashboard').setup {
             theme = 'doom',
             config = {
-                header = require("winer.db-logo")[2],
+                header = require("winer.db-logo")[math.random(1, #require("winer.db-logo"))],
                 center = {
-                    {
-                        icon = ' ',
-                        icon_hl = 'Title',
-                        desc = 'Find File',
-                        desc_hl = 'String',
-                        key = 'f',
-                        keymap = 'SPC f f',
-                        key_hl = 'Number',
-                        action = 'Telescope find_files'
-                    },
-                    {
-                        icon = ' ',
-                        icon_hl = 'Title',
+                    section({
+                        desc = "Find Files",
+                        key = "f",
+                        keymap = "SPC f f",
+                        action = "lua require('telescope.builtin').find_files()"
+                    }),
+                    section({
                         desc = 'Recent Files',
-                        desc_hl = 'String',
                         key = 'r',
                         keymap = 'SPC f o',
-                        key_hl = 'Number',
-                        action = 'Telescope oldfiles'
-                    },
-                    {
-                        icon = ' ',
-                        icon_hl = 'Title',
+                        action = "lua require('telescope.builtin').oldfiles()"
+                    }),
+                    section({
+                        desc = "Edit Config",
+                        key = "c",
+                        keymap = "SPC V c",
+                        action = "e $MYVIMRC"
+                    }),
+                    section({
+                        desc = "Open Lazy",
+                        key = "l",
+                        keymap = "SPC L",
+                        action = "Lazy"
+                    }),
+                    section({
                         desc = 'Quit',
-                        desc_hl = 'String',
                         key = 'q',
                         keymap = 'Z Z',
-                        key_hl = 'Number',
                         action = 'qa!'
-                    },
+                    }),
                 },
                 footer = { "Dave Raves All Day Long" }
             }
