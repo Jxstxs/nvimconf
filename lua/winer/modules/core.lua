@@ -1,9 +1,12 @@
 local m = require("winer.utils").map
 
 return {
-    { "famiu/bufdelete.nvim", keys = {
-        { m.ld("q"), m.cmd("Bdelete"), desc = "Close Buffer" },
-    } },
+    {
+        "famiu/bufdelete.nvim",
+        keys = {
+            { m.ld("q"), m.cmd("Bdelete"), desc = "Close Buffer" },
+        },
+    },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -11,7 +14,10 @@ return {
             require("nvim-autopairs").setup({ disable_in_macro = true })
         end,
     },
-    { "wakatime/vim-wakatime", event = "InsertEnter" },
+    {
+        "wakatime/vim-wakatime",
+        event = "InsertEnter",
+    },
     {
         "folke/which-key.nvim",
         config = function()
