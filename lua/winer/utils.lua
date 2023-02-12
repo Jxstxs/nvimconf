@@ -1,7 +1,7 @@
 local ks = vim.keymap.set
 
 local dopts = {
-    silent = true
+    silent = true,
 }
 
 local M = {
@@ -15,8 +15,12 @@ local M = {
         v = function(lhs, rhs, opts)
             ks("v", lhs, rhs, vim.tbl_deep_extend("force", dopts, opts or {}))
         end,
-        cmd = function(_cmd) return ":" .. _cmd .. "<CR>" end,
-        ld = function(_lhs) return "<leader>" .. _lhs end,
+        cmd = function(_cmd)
+            return ":" .. _cmd .. "<CR>"
+        end,
+        ld = function(_lhs)
+            return "<leader>" .. _lhs
+        end,
     },
 }
 
