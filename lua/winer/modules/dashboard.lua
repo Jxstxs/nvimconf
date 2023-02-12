@@ -1,5 +1,8 @@
 math.randomseed(os.time())
 
+--- Returns a merged table from opts and defaults
+---@param opts table?
+---@return table
 local section = function(opts)
     local defaults = {
         icon = " ",
