@@ -7,6 +7,7 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help"
     },
+    event = "InsertEnter",
     config = function()
         local cmp = require("cmp")
         cmp.setup({
