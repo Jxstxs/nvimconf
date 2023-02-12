@@ -22,6 +22,9 @@ local M = {
             return "<leader>" .. _lhs
         end,
     },
+    pvi = function(type)
+        print(vim.inspect(type))
+    end,
 }
 
 return M
