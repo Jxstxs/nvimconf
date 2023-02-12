@@ -5,92 +5,127 @@ return {
         "f3fora/cmp-spell",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lsp-signature-help"
+        "hrsh7th/cmp-nvim-lua",
+
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        "saadparwaiz1/cmp_luasnip",
+        { "doxnit/cmp-luasnip-choice", config = true },
+        { "KadoBOT/cmp-plugins",       config = true },
+        "lukas-reineke/cmp-under-comparator",
+        "onsails/lspkind.nvim",
     },
     event = "InsertEnter",
     config = function()
+        local has_words_before = function()
+            unpack = unpack or table.unpack
+            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        end
+
+        local luasnip = require("luasnip")
+        local lspkind = require("lspkind")
         local cmp = require("cmp")
         cmp.setup({
             snippet = {
-                -- REQUIRED - you must specify a snippet engine
----@diagnostic disable-next-line: unused-local
                 expand = function(args)
-                    -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                    -- require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-                    -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-                    -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+                    require("luasnip").lsp_expand(args.body)
                 end,
             },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
             },
+            view = { entries = { name = "custom", selection_order = "near_cursor" } },
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = "symbol",
+                    maxwidth = 50,
+                    ellipsis_char = "...",
+                    symbol_map = { Codeium = "" },
+                    menu = {
+                        buffer = "[Buf]",
+                        nvim_lsp = "[LSP]",
+                        luasnip = "[Snip]",
+                        nvim_lua = "[Lua]",
+                        path = "[Path]",
+                        codeium = "[AI]",
+                        nvim_lsp_signature_help = "[LSPS]",
+                    },
+                }),
+            },
             mapping = cmp.mapping.preset.insert({
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<C-b>"] = cmp.mapping.scroll_docs( -4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                ["<Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    elseif luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    elseif has_words_before() then
+                        cmp.complete()
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+                ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    elseif luasnip.jumpable( -1) then
+                        luasnip.jump( -1)
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
-                -- { name = 'luasnip' }, -- For luasnip users.
+                { name = "luasnip" },
                 { name = "buffer" },
                 { name = "nvim_lua" },
+                { name = "luasnip_choice" },
                 { name = "path" },
+                { name = "codeium" },
                 { name = "nvim_lsp_signature_help" },
+                {
+                    name = "plugins",
+                    option = {
+                        get_trigger_characters = function()
+                            return { "#" }
+                        end,
+                    },
+                },
                 -- { name = "spell" },
-                -- { name = "emoji" },
-                -- { name = "copilot" },
             }),
-
-            --	enabled = function()
-            --		-- disable completion in comments
-            --		local context = require("cmp.config.context")
-            --		-- keep command mode completion enabled when cursor is in a comment
-            --		if vim.api.nvim_get_mode().mode == "c" then
-            --			return true
-            --		else
-            --			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
-            --		end
-            --	end,
-        })
-
-        -- Set configuration for specific filetype.
-        cmp.setup.filetype("gitcommit", {
-            sources = cmp.config.sources({
-                { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-            }, {
-                { name = "buffer" },
-            }),
-        })
-
-        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
+            sorting = {
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.score,
+                    require("cmp-under-comparator").under,
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
             },
         })
 
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                { name = "cmdline" },
-            }),
-        })
-
-        -- Set up lspconfig.
----@diagnostic disable-next-line: undefined-global
         local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-        for _, server in ipairs(require("winer.lsps")) do
+        local servers = require("winer.lsps")
+
+        for i, server in pairs(servers) do
+            if server == "sumneko_lua" then
+                servers[i] = "lua_ls"
+            end
+        end
+
+        for _, server in ipairs(servers) do
             require("lspconfig")[server].setup({
                 capabilities = capabilities,
             })
         end
-    end
+    end,
 }
