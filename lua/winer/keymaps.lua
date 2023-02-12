@@ -20,6 +20,10 @@ m.n(m.ld("L"), m.cmd("Lazy"), { desc = "Open [L]azy UI" })
 
 m.n(m.ld("Q"), m.cmd("qa!"), { desc = "[Q]uit Nvim" })
 
+-- Reset Hightlights after search
+
+m.n(m.ld("h"), m.cmd("nohls"), { desc = "Reset [H]ighlights" })
+
 -- Vim/User Bindings
 
 m.n("<leader>Vs", function()
