@@ -39,6 +39,11 @@ M.map = {
     end,
 }
 
+--- Prints a whole Table
+---@param tbl table the table to print
+M.pvi = function(tbl)
+    print(vim.inspect(tbl))
+end
     end,
 }
 
