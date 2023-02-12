@@ -16,7 +16,7 @@ return {
         { m.ld("fk"), m.cmd("Telescope keymaps"), desc = "[K]eymaps" },
         { m.ld("fc"), m.cmd("Telescope commands"), desc = "[C]ommands" },
         { m.ld("fd"), m.cmd("Telescope diagnostics"), desc = "[D]iagnostics" },
-        { m.ld("fg"), m.cmd("Telescope live_grep"), desc = "[G]rep" },
+        { m.ld("fl"), m.cmd("Telescope live_grep"), desc = "[G]rep" },
         { m.ld("fgb"), m.cmd("Telescope git_branches"), desc = "[B]ranches" },
         { m.ld("fgc"), m.cmd("Telescope git_commits"), desc = "[C]ommits" },
         { m.ld("fgf"), m.cmd("Telescope git_bcommits"), desc = "[F]ile Commits" },
