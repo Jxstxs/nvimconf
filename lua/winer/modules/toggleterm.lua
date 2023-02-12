@@ -1,4 +1,3 @@
-
 return {
     -- FIX: need config
     "akinsho/toggleterm.nvim",
