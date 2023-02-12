@@ -11,4 +11,5 @@ return {
             require("nvim-autopairs").setup({ disable_in_macro = true })
         end,
     },
+    { "wakatime/vim-wakatime", event = "InsertEnter" },
 }
