@@ -50,3 +50,12 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
+
+vim.cmd("syntax off")
+
+vim.o.foldcolumn = "0" -- '0' is not bad
+-- vim.o.foldlevel = 99
+vim.o.foldlevelstart = 1
+vim.o.foldenable = false
+
+vim.o.foldmethod = "indent"
