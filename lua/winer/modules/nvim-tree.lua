@@ -20,6 +20,7 @@ return {
                         { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
                         { key = "h", cb = tree_cb("close_node") },
                         { key = "v", cb = tree_cb("vsplit") },
+                        { key = "s", cb = tree_cb("split") },
                     },
                 },
                 float = {
@@ -31,11 +32,7 @@ return {
                 },
             },
             sync_root_with_cwd = true,
-            view = { float = {
-                enable = true,
-                quit_on_focus_loss = false,
-            } },
-            renderer = { special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" }, },
+            renderer = { special_files = { "Makefile", "README.md", "readme.md" }, },
             update_focused_file = {
                 enable = true,
                 update_root = true,
