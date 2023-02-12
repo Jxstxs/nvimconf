@@ -1,8 +1,8 @@
 return {
     "lemminx", -- xml
     "vimls", -- vim script
-    "sqlls", -- sql
-    "jedi_language_server", -- python
+    -- "sqlls", -- sql
+    "pyright", -- python
     "marksman", -- markdown
     "sumneko_lua", -- lua
     "jsonls", -- json
