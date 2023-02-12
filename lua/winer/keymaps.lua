@@ -41,6 +41,11 @@ end, { desc = "Edit [C]onfig" })
 m.v("<", "<gv")
 m.v(">", ">gv")
 
+-- Buffer "Shifting"
+
+m.n("<S-h>", m.cmd("bprev"), { desc = "Previous Buffer" })
+m.n("<S-l>", m.cmd("bnext"), { desc = "Next Buffer" })
+
 -- Escape Insertmode
 
 m.i("jj", "<ESC>")
