@@ -1,8 +1,13 @@
 
 return {
     "lewis6991/gitsigns.nvim",
-    lazy = false,
+    event = "BufRead",
     config = function()
-        require("gitsigns").setup()
+        require("gitsigns").setup({
+            numhl = true,
+            current_line_blame_opts = {
+                virt_text_pos = "right_align"
+            }
+        })
     end
 }
