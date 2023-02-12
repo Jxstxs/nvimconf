@@ -24,6 +24,7 @@ return {
 
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
+        local neogen = require("neogen")
         local cmp = require("cmp")
         cmp.setup({
             snippet = {
@@ -66,6 +67,8 @@ return {
                         luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
+                    elseif neogen.jumpable() then
+                        neogen.jump_next()
                     else
                         fallback()
                     end
@@ -75,6 +78,8 @@ return {
                         cmp.select_prev_item()
                     elseif luasnip.jumpable( -1) then
                         luasnip.jump( -1)
+                    elseif neogen.jumpable(true) then
+                        neogen.jump_prev()
                     else
                         fallback()
                     end
@@ -88,7 +93,7 @@ return {
                 { name = "luasnip_choice" },
                 { name = "path" },
                 { name = "codeium" },
-                { name = "nvim_lsp_signature_help" },
+                -- { name = "nvim_lsp_signature_help" },
                 {
                     name = "plugins",
                     option = {
