@@ -17,6 +17,9 @@ return {
         { m.ld("fc"), m.cmd("Telescope commands"), desc = "[C]ommands" },
         { m.ld("fd"), m.cmd("Telescope diagnostics"), desc = "[D]iagnostics" },
         { m.ld("fl"), m.cmd("Telescope live_grep"), desc = "[G]rep" },
+        { m.ld("fp"), function()
+            require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+        end, desc = "[P]lugin files" },
         { m.ld("fgb"), m.cmd("Telescope git_branches"), desc = "[B]ranches" },
         { m.ld("fgc"), m.cmd("Telescope git_commits"), desc = "[C]ommits" },
         { m.ld("fgf"), m.cmd("Telescope git_bcommits"), desc = "[F]ile Commits" },
