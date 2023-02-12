@@ -84,6 +84,7 @@ return {
         wk.register({
             V = "[V]im Stuff",
             f = "[F]inder Stuff",
+            ["fg"] = "[G]it Stuff",
             g = "[G]it Stuff",
         }, { mode = "n", prefix = "<leader>" })
 
