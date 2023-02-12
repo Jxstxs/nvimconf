@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     spec = { { import = "winer.modules" } },
     -- defaults = { lazy = true, },
+    ui = { border = "single" },
     performance = {
         disabled_plugins = {
             "gzip",
@@ -25,5 +26,5 @@ require("lazy").setup({
             "tutor",
             "zipPlugin",
         },
-    }
+    },
 })
