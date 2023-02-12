@@ -1,13 +1,13 @@
 if vim.g.neovide then
-	vim.opt.guifont = { "Victor Mono Thin Nerd Font Complete", "h11" }
+    vim.opt.guifont = { "Victor Mono Thin Nerd Font Complete", "h11" }
 
-	vim.g.neovide_transparency = 0.8
+    vim.g.neovide_transparency = 0.8
 end
 
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
-vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+vim.opt.completeopt = { "menu", "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 2 -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
