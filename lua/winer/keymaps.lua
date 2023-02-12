@@ -18,7 +18,7 @@ m.n(m.ld("L"), m.cmd("Lazy"), { desc = "Open [L]azy UI" })
 
 -- Exit Vim
 
-m.n(m.ld("Q"), m.cmd("ZZ"), { desc = "[Q]uit Nvim" })
+m.n(m.ld("Q"), m.cmd("qa!"), { desc = "[Q]uit Nvim" })
 
 -- Vim/User Bindings
 
