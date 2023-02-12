@@ -52,4 +52,12 @@ return {
             }, { mode = "v", prefix = "<leader>" })
         end,
     },
+    {
+        "danymat/neogen",
+        keys = {
+            { m.ld("Ca"), m.cmd("Neogen"), desc = true },
+        },
+        opts = { snippet_engine = "luasnip" },
+        config = true,
+    },
 }
