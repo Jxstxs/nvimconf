@@ -63,4 +63,27 @@ return {
         opts = { snippet_engine = "luasnip" },
         config = true,
     },
+    {
+        "toppair/peek.nvim",
+        build = "deno task --quiet build:fast",
+        keys = {
+            {
+                m.ld("Cp"),
+                function()
+                    if require("peek").is_open() then
+                        require("peek").close()
+                    else
+                        require("peek").open()
+                    end
+                end,
+                desc = "Toggle [P]review",
+            },
+        },
+        config = function()
+            require("peek").setup({
+                syntax = false,
+                app = "browser",
+            })
+        end,
+    },
 }
