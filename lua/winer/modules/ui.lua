@@ -3,7 +3,12 @@ return {
         "folke/noice.nvim",
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
+            {
+                "rcarriga/nvim-notify",
+                config = function()
+                    require("telescope").load_extension("notify")
+                end,
+            },
         },
         config = function()
             require("noice").setup({
@@ -18,15 +23,15 @@ return {
                     lsp_doc_border = true,
                 },
             })
+
+            require("telescope").load_extension("noice")
         end,
     },
-
     {
         "stevearc/dressing.nvim",
         event = "UIEnter",
         config = true,
     },
-
     {
         "projekt0n/github-nvim-theme",
         lazy = false,
@@ -35,7 +40,6 @@ return {
             require("github-theme").setup({ theme_style = "dark_default" })
         end,
     },
-
     {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufRead",
