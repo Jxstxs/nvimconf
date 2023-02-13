@@ -58,7 +58,7 @@ return {
     {
         "danymat/neogen",
         keys = {
-            { m.ld("Ca"), m.cmd("Neogen"), desc = true },
+            { m.ld("Ca"), m.cmd("Neogen"), desc = "[A]nnotation" },
         },
         opts = { snippet_engine = "luasnip" },
         config = true,
