@@ -4,7 +4,7 @@ return {
     -- "sqlls", -- sql
     "pyright", -- python
     "marksman", -- markdown
-    "sumneko_lua", -- lua
+    "lua_ls", -- lua
     "jsonls", -- json
     "clangd", -- c, c++
     "bashls", -- bash
