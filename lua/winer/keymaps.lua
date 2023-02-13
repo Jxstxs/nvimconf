@@ -19,7 +19,7 @@ m.n(m.ld("Q"), m.cmd("qa!"), { desc = "[Q]uit Nvim" })
 m.n(m.ld("h"), m.cmd("nohls"), { desc = "Reset [H]ighlights" })
 
 -- Windows Problem => <C-V>
-m.n("<M-V>", "<C-V>", { desc = "Windows Problem" })
+m.n("<M-v>", "<C-v>", { desc = "Windows Problem" })
 
 -- Source Current File
 m.n("<leader>Vs", function()
