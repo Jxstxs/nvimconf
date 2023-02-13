@@ -89,6 +89,10 @@ return {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         event = { "BufRead *.norg", "BufNewFile *.norg" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-neorg/neorg-telescope",
+            },
         opts = {
             load = {
                 ["core.defaults"] = {},
@@ -113,10 +117,6 @@ return {
                 },
                 ["core.norg.manoeuvre"] = { config = {} },
             },
-        },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-neorg/neorg-telescope",
         },
     },
     {
