@@ -30,8 +30,19 @@ return {
     },
     config = function()
         local ts = require("telescope")
+        local actions = require("telescope.actions")
         ts.setup({
-            defaults = { mappings = { i = { ["<C-h>"] = "which_key" } } },
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<C-h>"] = "which_key",
+                        ["<Down>"] = actions.cycle_history_next,
+                        ["<Up>"] = actions.cycle_history_prev,
+                        ["<C-j>"] = actions.move_selection_next,
+                        ["<C-k>"] = actions.move_selection_previous,
+                    },
+                },
+            },
             extensions = {
                 fzf = {
                     fuzzy = true,
