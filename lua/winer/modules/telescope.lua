@@ -55,5 +55,6 @@ return {
         })
         ts.load_extension("fzf")
         ts.load_extension("noice")
+        ts.load_extension("notify")
     end,
 }
