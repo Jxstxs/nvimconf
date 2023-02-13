@@ -88,7 +88,7 @@ return {
     {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
-        event = { "BufRead", "BufNewFile" },
+        event = { "BufRead *.norg", "BufNewFile *.norg" },
         opts = {
             load = {
                 ["core.defaults"] = {},
