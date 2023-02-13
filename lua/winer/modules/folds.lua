@@ -71,6 +71,5 @@ return {
             { m.ld("Fc"), m.cmd("lua require('fold-cycle').close()"),     desc = "[C]lose Next" },
             { m.ld("FC"), m.cmd("lua require('fold-cycle').close_all()"), desc = "[C]lose All" },
         },
-        config = true,
     },
 }

@@ -1,7 +1,7 @@
 local m = require("winer.utils").map
 
 return {
-    { "jcdickinson/codeium.nvim", event = "InsertEnter", config = true },
+    { "jcdickinson/codeium.nvim", event = "InsertEnter" },
     {
         "jackMort/ChatGPT.nvim",
         opts = {
@@ -22,7 +22,6 @@ return {
                 },
             },
         },
-        config = true,
         keys = {
             { m.ld("Cc"), m.cmd("ChatGPT"), desc = "[C]hatGPT" },
         },
