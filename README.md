@@ -2,16 +2,16 @@
 - Autopairs: Done
 - cmp: not
 - todo comment: Done
-- dashboard: maybe (random ASCIIs ?)
 - dressing: maybe
 - indentline: maybe
 - gitsigns: not
 - lsp: maybe
-- lspsaga
 - lualine: Done
 - noice: not
-- nvim-tree: not
 - telescope: not
 - tree sitter: maybe
 - toggle term: not
 - whichkey: maybe
+- Snipptes: not
+- Folding: somehow uexbe
+- Hydra: somehow not working
