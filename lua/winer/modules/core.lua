@@ -120,4 +120,14 @@ return {
             "nvim-neorg/neorg-telescope",
         },
     },
+    {
+        "anuvyklack/hydra.nvim",
+        dependencies = {
+            { "jbyuki/venn.nvim" },
+        },
+        keys = {
+            { m.ld("Hv"), m.cmd("lua require('winer.hydras').activate_hydra('venn')"), desc = "[V]enn Diagrams" },
+            { m.ld("HH"), m.cmd("lua require('winer.hydras').activate_hydra()"), desc = "Choose [H]ydra" },
+        },
+    },
 }
