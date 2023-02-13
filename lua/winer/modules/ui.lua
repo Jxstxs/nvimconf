@@ -23,14 +23,11 @@ return {
                     lsp_doc_border = true,
                 },
             })
-
-            require("telescope").load_extension("noice")
         end,
     },
     {
         "stevearc/dressing.nvim",
         event = "UIEnter",
-        config = true,
     },
     {
         "projekt0n/github-nvim-theme",
