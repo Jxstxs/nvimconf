@@ -55,7 +55,5 @@ vim.cmd("syntax off")
 
 vim.o.foldcolumn = "0" -- '0' is not bad
 -- vim.o.foldlevel = 99
-vim.o.foldlevelstart = 1
+vim.o.foldlevelstart = 2
 vim.o.foldenable = false
-
-vim.o.foldmethod = "indent"
