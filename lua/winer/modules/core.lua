@@ -92,7 +92,40 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-neorg/neorg-telescope",
+            {
+                "lukas-reineke/headlines.nvim",
+                config = function()
+                    vim.cmd([[highlight Headline1 guibg=#36189b gui=italic,underline]])
+                    -- vim.cmd([[highlight Headline2 guibg=#21262d guifg=#1e2718 gui=italic]])
+                    -- vim.cmd([[highlight Headline3 guibg=#3e2718 guifg=#1e2718 gui=italic]])
+                    -- vim.cmd([[highlight Headline4 guibg=#41262d guifg=#1e2718 gui=italic]])
+                    -- vim.cmd([[highlight Headline5 guibg=#5e2718 guifg=#1e2718 gui=italic]])
+                    -- vim.cmd([[highlight Headline6 guibg=#61262d guifg=#1e2718 gui=italic]])
+
+                    -- vim.cmd([[highlight CodeBlock guibg=#1c1c1c]])
+
+                    -- vim.cmd([[highlight Quote guibg=#2c1c1c]])
+
+                    -- vim.cmd([[highlight Dash guibg=#D19A66]])
+                    -- vim.cmd([[highlight DoubleDash guibg=#D29A66]])
+
+                    require("headlines").setup({
+                        norg = {
+                            fat_headlines = false,
+                            fat_headline_upper_string = " ", -- "▃",
+                            headline_highlights = {
+                                "Headline1",
+                                "Headline2",
+                                "Headline3",
+                                "Headline4",
+                                "Headline5",
+                                "Headline6",
+                            },
+                        },
+                    })
+                end,
             },
+        },
         opts = {
             load = {
                 ["core.defaults"] = {},
@@ -103,7 +136,28 @@ return {
                 },
                 -- ["core.presenter"] = { config = { zen_mode = "truezen" } },
                 ["core.export"] = {},
-                ["core.norg.concealer"] = {},
+                ["core.norg.concealer"] = {
+                    config = {
+                        icons = {
+                            heading = {
+                                level_1 = { icon = "﮴ " },
+                                level_2 = { icon = "  " },
+                                level_3 = { icon = "   " },
+                                level_4 = { icon = "    " },
+                                level_5 = { icon = "     " },
+                                level_6 = { icon = "      " },
+                            },
+                            list = {
+                                level_1 = { icon = "﬌" },
+                                level_2 = { icon = "  ﬌" },
+                                level_3 = { icon = "   ﬌" },
+                                level_4 = { icon = "    ﬌" },
+                                level_5 = { icon = "     ﬌" },
+                                level_6 = { icon = "      ﬌" },
+                            },
+                        },
+                    },
+                },
                 ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
                 ["core.integrations.telescope"] = {}, -- FIX: Need Config?
                 ["core.norg.dirman"] = {
