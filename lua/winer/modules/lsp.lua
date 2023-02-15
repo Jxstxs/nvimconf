@@ -96,7 +96,7 @@ return {
                         keymaps = {},
                         border = "single",
                         ts_fold = true,
-                        transparency = nil,
+                        transparency = 100,
                         lsp_signature_help = true,
                         signature_help_cfg = { debug = false },
                         lsp = {
