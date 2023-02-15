@@ -335,48 +335,13 @@ return {
                 "lukas-reineke/headlines.nvim",
                 enable = false,
                 config = function()
-                    vim.cmd([[highlight Written gui=italic]]) -- guibg=#36189b
                     -- vim.cmd([[highlight Headline2 guibg=#21262d guifg=#1e2718 gui=italic]])
-                    -- vim.cmd([[highlight Headline3 guibg=#3e2718 guifg=#1e2718 gui=italic]])
-                    -- vim.cmd([[highlight Headline4 guibg=#41262d guifg=#1e2718 gui=italic]])
-                    -- vim.cmd([[highlight Headline5 guibg=#5e2718 guifg=#1e2718 gui=italic]])
-                    -- vim.cmd([[highlight Headline6 guibg=#61262d guifg=#1e2718 gui=italic]])
-
                     -- vim.cmd([[highlight CodeBlock guibg=#1c1c1c]])
-
                     -- vim.cmd([[highlight Quote guibg=#2c1c1c]])
-
                     -- vim.cmd([[highlight Dash guibg=#D19A66]])
                     -- vim.cmd([[highlight DoubleDash guibg=#D29A66]])
-
                     require("headlines").setup({
                         norg = {
-                            query = vim.treesitter.parse_query(
-                                "norg",
-                                -- stylua: ignore start
-                                [[
-                                    [
-                                        (heading1_prefix)
-                                        (heading2_prefix)
-                                        (heading3_prefix)
-                                        (heading4_prefix)
-                                        (heading5_prefix)
-                                        (heading6_prefix)
-                                    ] @headline
-
-                                    (weak_paragraph_delimiter) @dash
-                                    (strong_paragraph_delimiter) @doubledash
-
-                                    ((ranged_tag
-                                        name: (tag_name) @_name
-                                        (#eq? @_name "code")
-                                    ) @codeblock (#offset! @codeblock 0 0 1 0))
-
-                                    (quote1_prefix) @quote
-
-                                ]]
-                                -- stylua: ignore end
-                            ),
                             fat_headlines = false,
                             fat_headline_upper_string = " ", -- "▃",
                             fat_headline_lower_string = " ", -- "▃",
