@@ -172,13 +172,6 @@ return {
             },
         },
     },
-    {
-        -- FIX: need config
-        "akinsho/toggleterm.nvim",
-        config = function()
-            require("toggleterm").setup()
-        end,
-    },
     { "jcdickinson/codeium.nvim", event = "InsertEnter" },
     {
         "folke/todo-comments.nvim",
