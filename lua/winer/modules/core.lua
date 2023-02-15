@@ -123,11 +123,11 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-path",
+            "delphinus/cmp-ctags",
             "f3fora/cmp-spell",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lua",
-
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "saadparwaiz1/cmp_luasnip",
             "doxnit/cmp-luasnip-choice",
@@ -174,6 +174,7 @@ return {
                             path = "[Path]",
                             codeium = "[AI]",
                             nvim_lsp_signature_help = "[LSPS]",
+                            ctags = "[CT]",
                         },
                     }),
                 },
@@ -216,6 +217,7 @@ return {
                     { name = "luasnip_choice" },
                     { name = "path" },
                     { name = "codeium" },
+                    { name = "cmp_ctags" },
                     -- { name = "nvim_lsp_signature_help" },
                     {
                         name = "plugins",
