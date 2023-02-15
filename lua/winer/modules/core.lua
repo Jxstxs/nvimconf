@@ -412,7 +412,7 @@ return {
                 },
             })
 
----@diagnostic disable-next-line: unused-local
+            ---@diagnostic disable-next-line: unused-local
             local autogroup = vim.api.nvim_create_augroup("winerau", { clear = true })
 
             vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -422,7 +422,7 @@ return {
                     vim.opt_local.wrap = true
                     vim.opt_local.spell = true
                     vim.opt_local.spelllang = "de,en"
-                    vim.api.nvim_set_hl(0, "written", { italic = true })
+                    vim.api.nvim_set_hl(0, "@Written", { italic = true })
                 end,
             })
         end,
