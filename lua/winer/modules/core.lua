@@ -1,4 +1,5 @@
-local m = require("winer.utils").map
+local utils = require("winer.utils")
+local m = utils.map
 
 return {
     {
