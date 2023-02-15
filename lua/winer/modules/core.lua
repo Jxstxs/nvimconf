@@ -356,7 +356,7 @@ return {
         keys = {
             { m.ld("Njj"), m.cmd("Neorg journal today"), desc = "Todays [J]ournal" },
             { m.ld("Njt"), m.cmd("Neorg journal tomorrow"), desc = "[T]omorrows Journal" },
-            { m.ld("Njy"), m.cmd("Neorg journal today"), desc = "[Y]esterdays Journal" },
+            { m.ld("Njy"), m.cmd("Neorg journal yesterday"), desc = "[Y]esterdays Journal" },
         },
         config = function()
             require("neorg").setup({
