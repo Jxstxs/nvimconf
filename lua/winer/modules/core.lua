@@ -427,4 +427,44 @@ return {
             })
         end,
     },
+    {
+        "ludovicchabant/vim-gutentags",
+        event = { "BufReadPre *.pas", "BufNewFile *.pas", "BufReadPre *.lpr", "BufNewFile *.lpr" },
+        dependencies = {
+            {
+                "Jxstxs/nvim-telescope-ctags-plus",
+                keys = {
+                    {
+                        m.ld("fC"),
+                        m.cmd("lua require('telescope').extensions.ctags_plus.jump_to_tag({under_word = true})"),
+                        desc = "[C]tags Undercursor",
+                    },
+                    {
+                        m.ld("fG"),
+                        m.cmd("lua require('telescope').extensions.ctags_plus.jump_to_tag()"),
+                        desc = "Ctags [G]lobal",
+                    },
+                },
+                config = function()
+                    require("telescope").load_extension("ctags_plus")
+                end,
+            },
+        },
+        config = function()
+            vim.cmd([[
+            let g:gutentags_trace = 1
+            let g:gutentags_project_root = [ "main.lpr", "main.lpi", "schoolnotes.lpr"]
+            let g:gutentags_add_default_project_roots = 0
+            let g:gutentags_generate_on_new = 1
+            let g:gutentags_generate_on_missing = 1
+            let g:gutentags_generate_on_write = 1
+            let g:gutentags_generate_on_empty_buffer = 0
+            let g:gutentags_ctags_extra_args = [
+            \ '--tag-relative=yes',
+            \ '--fields=+ailmnS',
+            \ ]
+            ]])
+            -- \ '--langdef=Delphi', \ '--langmap=Delphi:.pas', \ '--regex-Delphi=/(\w+)\s*=\s*class/\1/c,class/', \ '--regex-Delphi=/(\w+)\s*=\s*record/\1/r,record/', \ '--regex-Delphi=/(\w+)\s*=\s*\(/\1/e,enum/', \ '--regex-Delphi=/function\s*(\w+)\s*[;\(]/\1/f,function/', \ '--regex-Delphi=/function\s*\w+\.(\w+)\s*[;\(]/\1/f,function/', \ '--regex-Delphi=/procedure\s*(\w+)\s*[;\(]/\1/p,procedure/', \ '--regex-Delphi=/procedure\s*\w+\.(\w+)\s*[;\(]/\1/p,procedure/',
+        end,
+    },
 }
