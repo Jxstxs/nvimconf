@@ -301,6 +301,30 @@ return {
         end,
     },
     {
+        "ziontee113/SnippetGenie",
+        enabled = false,
+        opts = {
+            snippets_directory = vim.fn.stdpath("config") .. "lua/winer/snippets/",
+            file_name = "snip_genie",
+        },
+        keys = {
+            {
+                m.ld("CN"),
+                m.cmd("lua require('SnippetGenie').create_new_snippet_or_add_placeholder()"),
+                desc = "Submit Snippet",
+            },
+            {
+                m.ld("Cn"),
+                function()
+                    require("SnippetGenie").create_new_snippet_or_add_placeholder()
+                    vim.cmd("norm! �")
+                end,
+                mode = "x",
+                desc = "[N]ew Snippet",
+            },
+        },
+    },
+    {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         event = { "BufRead *.norg", "BufNewFile *.norg" },
