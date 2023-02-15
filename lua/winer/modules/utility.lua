@@ -34,9 +34,9 @@ return {
                     -- FIX: integrate with hydra
                     "jghauser/fold-cycle.nvim",
                     keys = {
-                        { m.ld("Fo"), m.cmd("lua require('fold-cycle').open()"),      desc = "[O]pen Next" },
-                        { m.ld("FO"), m.cmd("lua require('fold-cycle').open_all()"),  desc = "[O]pen All" },
-                        { m.ld("Fc"), m.cmd("lua require('fold-cycle').close()"),     desc = "[C]lose Next" },
+                        { m.ld("Fo"), m.cmd("lua require('fold-cycle').open()"), desc = "[O]pen Next" },
+                        { m.ld("FO"), m.cmd("lua require('fold-cycle').open_all()"), desc = "[O]pen All" },
+                        { m.ld("Fc"), m.cmd("lua require('fold-cycle').close()"), desc = "[C]lose Next" },
                         { m.ld("FC"), m.cmd("lua require('fold-cycle').close_all()"), desc = "[C]lose All" },
                     },
                 },
@@ -44,7 +44,7 @@ return {
         },
         keys = {
             { m.ld("Hv"), m.cmd("lua require('winer.hydras').activate_hydra('venn')"), desc = "[V]enn Diagrams" },
-            { m.ld("HH"), m.cmd("lua require('winer.hydras').activate_hydra()"),       desc = "Choose [H]ydra" },
+            { m.ld("HH"), m.cmd("lua require('winer.hydras').activate_hydra()"), desc = "Choose [H]ydra" },
         },
     },
     {
@@ -94,9 +94,9 @@ return {
                         custom_only = false,
                         list = {
                             { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                            { key = "h",                  cb = tree_cb("close_node") },
-                            { key = "v",                  cb = tree_cb("vsplit") },
-                            { key = "s",                  cb = tree_cb("split") },
+                            { key = "h", cb = tree_cb("close_node") },
+                            { key = "v", cb = tree_cb("vsplit") },
+                            { key = "s", cb = tree_cb("split") },
                         },
                     },
                     float = {
@@ -135,7 +135,7 @@ return {
     {
         "stevearc/oil.nvim",
         keys = {
-            { m.ld("Co"), m.cmd("lua require('oil').open_float()"), desc = "[O]il" }
+            { m.ld("Co"), m.cmd("lua require('oil').open_float()"), desc = "[O]il" },
         },
         opts = {
             columns = {
@@ -200,5 +200,13 @@ return {
                 merge_keywords = true,
             })
         end,
+    },
+    {
+        "is0n/fm-nvim",
+        enabled = true,
+        keys = {
+            { m.ld("gL"), m.cmd("Lazygit"), desc = "[L]azygit" },
+        },
+        opts = { ui = { float = { border = "single" } } },
     },
 }
