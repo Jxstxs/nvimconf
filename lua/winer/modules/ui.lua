@@ -167,13 +167,13 @@ return {
                     "@brief%s*", -- (for C++) Remove '@brief' and all spaces after.
                 },
                 matchup_patterns = {
-                    { "^%s*do$",       "end" }, -- `do ... end` blocks
-                    { "^%s*if",        "end" },
-                    { "^%s*for",       "end" },
+                    { "^%s*do$", "end" }, -- `do ... end` blocks
+                    { "^%s*if", "end" },
+                    { "^%s*for", "end" },
                     { "function%s*%(", "end" },
-                    { "{",             "}" },
-                    { "%(",            ")" },
-                    { "%[",            "]" },
+                    { "{", "}" },
+                    { "%(", ")" },
+                    { "%[", "]" },
                 },
             })
         end,
@@ -238,11 +238,11 @@ return {
         "lewis6991/gitsigns.nvim",
         event = "BufRead",
         keys = {
-            { m.ld("gp"), m.cmd("Gitsigns preview_hunk"),              desc = "[P]review Hunk" },
+            { m.ld("gp"), m.cmd("Gitsigns preview_hunk"), desc = "[P]review Hunk" },
             { m.ld("gb"), m.cmd("Gitsigns toggle_current_line_blame"), desc = "Line [B]lame" },
-            { m.ld("gr"), m.cmd("Gitsigns reset_hunk"),                desc = "[R]eset Hunk" },
-            { m.ld("gl"), m.cmd("Gitsigns toggle_linehl"),             desc = "[L]ine Highlight" },
-            { m.ld("gd"), m.cmd("Gitsigns toggle_deleted"),            desc = "Show [D]eleted" },
+            { m.ld("gr"), m.cmd("Gitsigns reset_hunk"), desc = "[R]eset Hunk" },
+            { m.ld("gl"), m.cmd("Gitsigns toggle_linehl"), desc = "[L]ine Highlight" },
+            { m.ld("gd"), m.cmd("Gitsigns toggle_deleted"), desc = "Show [D]eleted" },
         },
         config = function()
             require("gitsigns").setup({
@@ -265,6 +265,22 @@ return {
                 space_char_blankline = " ",
                 show_current_context = true,
                 show_current_context_start = true,
+            })
+        end,
+    },
+    {
+        "tamton-aquib/flirt.nvim",
+        enabled = false,
+        config = function()
+            require("flirt").setup({
+                override_open = true, -- experimental
+                close_command = "Q",
+                default_move_mappings = false, -- <C-arrows> to move floats
+                default_resize_mappings = false, -- <A-arrows> to resize floats
+                default_mouse_mappings = true, -- Drag floats with mouse
+                exclude_fts = { "notify" },
+                -- exclude_fts = { "notify", "cmp_menu" },
+                -- custom_filter = function(buffer, win_config) return vim.bo[buffer].filetype == "cmp_menu" end,
             })
         end,
     },
