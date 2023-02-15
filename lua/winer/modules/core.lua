@@ -4,9 +4,7 @@ local m = utils.map
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = {
-            { "nvim-treesitter/playground", cmd = "TSHighlightCapturesUnderCursor" },
-        },
+        dependencies = { { "nvim-treesitter/playground", enabled = false, cmd = "TSHighlightCapturesUnderCursor" } },
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
