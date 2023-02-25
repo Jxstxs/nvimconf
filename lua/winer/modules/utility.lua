@@ -199,6 +199,7 @@ return {
         enabled = true,
         keys = {
             { m.ld("gL"), m.cmd("Lazygit"), desc = "[L]azygit" },
+            { m.ld("r"), m.cmd("Ranger"), desc = "[R]anger" },
         },
         opts = { ui = { float = { border = "single" } } },
     },
