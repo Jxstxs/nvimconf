@@ -333,7 +333,7 @@ return {
             "nvim-neorg/neorg-telescope",
             {
                 "lukas-reineke/headlines.nvim",
-                enable = false,
+                enabled = false,
                 config = function()
                     -- vim.cmd([[highlight Headline2 guibg=#21262d guifg=#1e2718 gui=italic]])
                     -- vim.cmd([[highlight CodeBlock guibg=#1c1c1c]])
@@ -377,24 +377,8 @@ return {
                     },
                     ["core.norg.concealer"] = {
                         config = {
-                            icons = {
-                                heading = {
-                                    level_1 = { icon = "﮴ " },
-                                    level_2 = { icon = "  " },
-                                    level_3 = { icon = "   " },
-                                    level_4 = { icon = "    " },
-                                    level_5 = { icon = "     " },
-                                    level_6 = { icon = "      " },
-                                },
-                                list = {
-                                    level_1 = { icon = "﬌" },
-                                    level_2 = { icon = "  ﬌" },
-                                    level_3 = { icon = "   ﬌" },
-                                    level_4 = { icon = "    ﬌" },
-                                    level_5 = { icon = "     ﬌" },
-                                    level_6 = { icon = "      ﬌" },
-                                },
-                            },
+                            -- icons = { heading = { level_1 = { icon = "﮴ " }, level_2 = { icon = "  " }, level_3 = { icon = "   " }, level_4 = { icon = "    " }, level_5 = { icon = "     " }, level_6 = { icon = "      " }, }, -- list = { level_1 = { icon = "﬌" }, level_2 = { icon = "  ﬌" }, level_3 = { icon = "   ﬌" }, level_4 = { icon = "    ﬌" }, level_5 = { icon = "     ﬌" }, level_6 = { icon = "      ﬌" }, }, },
+                            icon_preset = "diamond"
                         },
                     },
                     ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
