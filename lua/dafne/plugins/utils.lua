@@ -13,7 +13,7 @@ return {
             "MunifTanjim/nui.nvim",
         },
         keys = {
-            {m.ld("e"), m.lua("require('neo-tree').float()"), desc = "Neotree"},
+            { m.ld("e"), m.lua("require('neo-tree').float()"), desc = "Neotree" },
         },
         opts = {
             close_if_last_window = true,
@@ -45,7 +45,7 @@ return {
                 window = {
                     position = "float",
                     mappings = {
-                        ["A"]  = "git_add_all",
+                        ["A"] = "git_add_all",
                         ["a"] = "git_add_file",
                         ["u"] = "git_unstage_file",
                         ["c"] = "git_commit",
