@@ -196,11 +196,28 @@ return {
     },
     {
         "is0n/fm-nvim",
-        enabled = true,
+        enabled = false,
         keys = {
             { m.ld("gL"), m.cmd("Lazygit"), desc = "[L]azygit" },
             { m.ld("r"), m.cmd("Ranger"), desc = "[R]anger" },
         },
         opts = { ui = { float = { border = "single" } } },
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        keys = {
+            { m.ld("gl"), LAZY_TOGGLE, desc = "[L]azygit" },
+            { m.ld("r"), RANGER_TOGGLE, desc = "[R]anger" },
+        },
+        opts = {
+            autochdir = true,
+            start_in_insert = true,
+            insert_mappings = true, -- whether or not the open mapping applies in insert mode
+            terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
+            direction = "float",
+            close_on_exit = true, -- close the terminal window when the process exits
+            auto_scroll = true, -- automatically scroll to the bottom on terminal output
+            float_opts = { border = "single" },
+        },
     },
 }
