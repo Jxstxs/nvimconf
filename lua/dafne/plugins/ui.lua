@@ -124,6 +124,23 @@ return {
             })
         end,
     },
+
+    {
+        "tamton-aquib/flirt.nvim",
+        enabled = true,
+        config = function()
+            require("flirt").setup({
+                override_open = true,
+                close_command = "Q",
+                default_move_mappings = false,
+                default_resize_mappings = false,
+                default_mouse_mappings = true,
+            })
+        end,
+    },
+
+    { "stevearc/dressing.nvim", },
+
     {
         "glepnir/dashboard-nvim",
         config = function()
