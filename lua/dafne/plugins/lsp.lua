@@ -30,6 +30,14 @@ return {
                 automatic_installation = true,
             })
 
+            require("mason-null-ls").setup({
+                ensure_installed = to_install["null"],
+                automatic_installation = true,
+                automatic_setup = true,
+            })
+
+            require('mason-null-ls').setup_handlers()
+
             local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
             for _, v in ipairs(to_install["lsps"]) do
                 require("lspconfig")[v].setup({
@@ -50,6 +58,7 @@ return {
             { m.ld("lg"), m.cmd("Lspsaga goto_definition"),            desc = "Goto Def" },
             { m.ld("lw"), m.cmd("Lspsaga show_workspace_diagnostics"), desc = "Workspace Diagnostics" },
             { m.ld("lo"), m.cmd("Lspsaga outline"),                    desc = "Outline" },
+            { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"),   desc = "Rename" },
         },
         config = true,
         dependencies = {
