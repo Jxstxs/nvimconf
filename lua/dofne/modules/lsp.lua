@@ -1,21 +1,17 @@
-local m = require("winer.utils").map
+local m = require("dofne.utils").map
 
 return {
     {
+        -- FIX: Cleanup
         "williamboman/mason.nvim",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
-            {
-                "mfussenegger/nvim-dap",
-                dependencies = { "rcarriga/nvim-dap-ui" },
-            },
             "jose-elias-alvarez/null-ls.nvim",
             {
                 "jay-babu/mason-null-ls.nvim",
                 config = function()
-                    local null_ls = require("null-ls")
                     require("crates").setup({
                         null_ls = {
                             enabled = true,
@@ -37,7 +33,7 @@ return {
             { m.ld("M"), m.cmd("Mason"), desc = "[M]ason" },
         },
         config = function()
-            for _, server in ipairs(require("winer.lsps")) do
+            for _, server in ipairs(require("dofne.lsps")) do
                 require("lspconfig")[server].setup({})
             end
 
@@ -46,17 +42,11 @@ return {
             })
 
             require("mason-lspconfig").setup({
-                ensure_installed = require("winer.lsps"),
+                ensure_installed = require("dofne.lsps"),
                 automatic_installation = true,
             })
 
             require("mason-null-ls").setup({
-                ensure_installed = {},
-                automatic_installation = false,
-                automatic_setup = true,
-            })
-
-            require("mason-nvim-dap").setup({
                 ensure_installed = {},
                 automatic_installation = false,
                 automatic_setup = true,
@@ -71,7 +61,6 @@ return {
                 border = "single",
             })
             require("mason-null-ls").setup_handlers()
-            require("mason-nvim-dap").setup_handlers()
         end,
     },
 }

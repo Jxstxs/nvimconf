@@ -1,30 +1,6 @@
-local m = require("winer.utils").map
+local m = require("dofne.utils").map
 
 return {
-    {
-        "jackMort/ChatGPT.nvim",
-        opts = {
-            yank_register = "+",
-            settings_window = {
-                border = {
-                    style = "single",
-                },
-            },
-            chat_window = {
-                border = {
-                    style = "single",
-                },
-            },
-            chat_input = {
-                border = {
-                    style = "single",
-                },
-            },
-        },
-        keys = {
-            { m.ld("Cc"), m.cmd("ChatGPT"), desc = "[C]hatGPT" },
-        },
-    },
     {
         "anuvyklack/hydra.nvim",
         dependencies = {
@@ -46,29 +22,6 @@ return {
             { m.ld("Hv"), m.cmd("lua require('winer.hydras').activate_hydra('venn')"), desc = "[V]enn Diagrams" },
             { m.ld("HH"), m.cmd("lua require('winer.hydras').activate_hydra()"), desc = "Choose [H]ydra" },
         },
-    },
-    {
-        "toppair/peek.nvim",
-        build = "deno task --quiet build:fast",
-        keys = {
-            {
-                m.ld("Cp"),
-                function()
-                    if require("peek").is_open() then
-                        require("peek").close()
-                    else
-                        require("peek").open()
-                    end
-                end,
-                desc = "Toggle [P]review",
-            },
-        },
-        config = function()
-            require("peek").setup({
-                syntax = false,
-                app = "browser",
-            })
-        end,
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -140,9 +93,8 @@ return {
         opts = {
             columns = {
                 "icon",
-                -- "permissions",
                 "size",
-                -- "mtime",
+                "mtime",
             },
             skip_confirm_for_simple_edits = true,
             keymaps = {
@@ -185,27 +137,10 @@ return {
         },
         config = function()
             require("todo-comments").setup({
-                keywords = {
-                    -- FIX = {
-                    -- icon = " ", -- icon used for the sign, and in search results
-                    -- color = "error", -- can be a hex color, or a named color (see below)
-                    -- alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-                    -- signs = false, -- configure signs for some keywords individually
-                    -- },
-                },
                 merge_keywords = true,
                 highlight = { multiline = false },
             })
         end,
-    },
-    {
-        "is0n/fm-nvim",
-        enabled = false,
-        keys = {
-            { m.ld("gL"), m.cmd("Lazygit"), desc = "[L]azygit" },
-            { m.ld("r"), m.cmd("Ranger"), desc = "[R]anger" },
-        },
-        opts = { ui = { float = { border = "single" } } },
     },
     {
         "akinsho/toggleterm.nvim",

@@ -1,5 +1,4 @@
-local utils = require("winer.utils")
-local m = utils.map
+local m = require("dofne.utils").map
 
 return {
     {
@@ -14,22 +13,19 @@ return {
                 ensure_installed = {
                     "bash",
                     "c",
-                    "cpp",
-                    -- "gitignore",
-                    "java",
-                    "json",
-                    "json5",
+                    "gitignore",
                     "lua",
-                    "make",
+                    "luadoc",
                     "markdown",
                     "markdown_inline",
-                    "python",
-                    -- "sql",
-                    "vim",
+                    "norg",
+                    "rust",
+                    "sql",
+                    "toml",
+                    "regex",
                 },
                 sync_install = false,
-                auto_install = false,
-                ignore_install = {},
+                auto_install = true,
                 highlight = { enable = true, additional_vim_regex_highlighting = false },
             })
         end,
@@ -48,6 +44,7 @@ return {
         opts = { snippet_engine = "luasnip" },
     },
     {
+        -- FIX: Cleanup
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -119,7 +116,6 @@ return {
             })
             ts.load_extension("fzf")
             ts.load_extension("noice")
-            ts.load_extension("notify")
             ts.load_extension("menufacture")
         end,
     },
@@ -138,6 +134,7 @@ return {
         event = "InsertEnter",
     },
     {
+        -- FIX: Cleanup
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-path",
@@ -146,7 +143,6 @@ return {
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "saadparwaiz1/cmp_luasnip",
-            "doxnit/cmp-luasnip-choice",
             "lukas-reineke/cmp-under-comparator",
             "onsails/lspkind.nvim",
             "doxnit/cmp-luasnip-choice",
@@ -254,7 +250,7 @@ return {
 
             local capabilities =
                 require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-            local servers = require("winer.lsps")
+            local servers = require("dofne.lsps")
 
             for _, server in ipairs(servers) do
                 require("lspconfig")[server].setup({
@@ -314,6 +310,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-neorg/neorg-telescope",
             {
+                -- FIX: Cleanup
                 "lukas-reineke/headlines.nvim",
                 enabled = false,
                 config = function()
@@ -359,7 +356,6 @@ return {
                     },
                     ["core.norg.concealer"] = {
                         config = {
-                            -- icons = { heading = { level_1 = { icon = "﮴ " }, level_2 = { icon = "  " }, level_3 = { icon = "   " }, level_4 = { icon = "    " }, level_5 = { icon = "     " }, level_6 = { icon = "      " }, }, -- list = { level_1 = { icon = "﬌" }, level_2 = { icon = "  ﬌" }, level_3 = { icon = "   ﬌" }, level_4 = { icon = "    ﬌" }, level_5 = { icon = "     ﬌" }, level_6 = { icon = "      ﬌" }, }, },
                             icon_preset = "diamond",
                         },
                     },
@@ -371,7 +367,7 @@ return {
                                 notes = "~/repos/personal/notes/",
                                 scholr = "~/repos/personal/scholr/",
                             },
-                            index = "index.norg", -- The name of the main (root) .norg file
+                            index = "index.norg",
                         },
                     },
                     ["core.norg.manoeuvre"] = { config = {} },

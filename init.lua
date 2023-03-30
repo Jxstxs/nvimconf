@@ -1,6 +1,6 @@
-require("winer.options")
-require("winer.keymaps")
-require("winer.lazy")
+require("dofne.options")
+require("dofne.keymaps")
+require("dofne.lazy")
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {

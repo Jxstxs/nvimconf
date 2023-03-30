@@ -5,26 +5,26 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = { { import = "winer.modules" } },
-    -- defaults = { lazy = true, },
+    spec = { { import = "dofne.modules" } },
     ui = { border = "single" },
     performance = {
-        disabled_plugins = {
-            "gzip",
-            "matchit",
-            "matchparen",
-            "netrwPlugin",
-            "tarPlugin",
-            "tohtml",
-            "tutor",
-            "zipPlugin",
-        },
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "matchit",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        }
     },
 })

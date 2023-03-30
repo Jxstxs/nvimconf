@@ -1,6 +1,6 @@
 math.randomseed(os.time())
 
-local m = require("winer.utils").map
+local m = require("dofne.utils").map
 
 --- Returns a merged table from opts and defaults
 ---@param opts table?
@@ -26,7 +26,6 @@ return {
             require("dashboard").setup({
                 theme = "doom",
                 config = {
-                    header = require("winer.db-logo")[math.random(1, #require("winer.db-logo"))],
                     center = {
                         section({
                             desc = "Find Files",
@@ -69,32 +68,60 @@ return {
         "folke/noice.nvim",
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
         },
-        config = function()
-            require("noice").setup({
-                lsp = {
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true,
+        opts = {
+            lsp = {
+                override = {
+                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                    ["vim.lsp.util.stylize_markdown"] = true,
+                    ["cmp.entry.get_documentation"] = true,
+                },
+            },
+            presets = {
+                long_message_to_split = false,
+            },
+            views = {
+                cmdline_popup = {
+                    position = {
+                        row = 5,
+                        col = "50%",
+                    },
+                    size = {
+                        width = 60,
+                        height = "auto",
                     },
                 },
-                presets = {
-                    lsp_doc_border = true,
+                popupmenu = {
+                    relative = "editor",
+                    position = {
+                        row = 8,
+                        col = "50%",
+                    },
+                    size = {
+                        width = 60,
+                        height = 10,
+                    },
+                    border = {
+                        style = "single",
+                        padding = { 0, 1 },
+                    },
+                    win_options = {
+                        winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+                    },
                 },
-            })
-        end,
+            },
+        },
     },
     {
         "stevearc/dressing.nvim",
     },
     {
-        "projekt0n/github-nvim-theme",
+        "nyoom-engineering/oxocarbon.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            require("github-theme").setup({ theme_style = "dark_default" })
+            vim.opt.background = "dark"
+            vim.cmd("colorscheme oxocarbon")
         end,
     },
     {
@@ -257,9 +284,6 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufRead",
         config = function()
-            vim.opt.list = true
-            vim.opt.listchars:append("eol:↴")
-
             require("indent_blankline").setup({
                 show_end_of_line = true,
                 space_char_blankline = " ",
@@ -279,8 +303,6 @@ return {
                 default_resize_mappings = false, -- <A-arrows> to resize floats
                 default_mouse_mappings = true, -- Drag floats with mouse
                 exclude_fts = { "notify" },
-                -- exclude_fts = { "notify", "cmp_menu" },
-                -- custom_filter = function(buffer, win_config) return vim.bo[buffer].filetype == "cmp_menu" end,
             })
         end,
     },
