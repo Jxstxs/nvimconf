@@ -55,4 +55,13 @@ return {
             },
         },
     },
+
+    {
+        "danymat/neogen",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        keys = {
+            {m.ld("g"), m.lua("require('neogen').generate()"), desc = "Generate Annotation"},
+        },
+        opts = { snippet_engine = "luasnip" },
+    },
 }
