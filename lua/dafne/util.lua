@@ -31,6 +31,12 @@ M.map = {
     cmd = function(_cmd)
         return ":" .. _cmd .. "<CR>"
     end,
+    --- Returns a String as Vim Lua Command
+    ---@param _cmd string the Command to warp
+    ---@return string cmd the Vim Command
+    lua = function(_cmd)
+        return ":lua " .. _cmd .. "<CR>"
+    end,
     --- Returns a String as Leader Keybinding
     ---@param _lhs string to keys to warp
     ---@return string lhs the Leaderkeybinding
