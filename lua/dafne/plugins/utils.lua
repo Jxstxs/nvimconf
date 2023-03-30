@@ -1,8 +1,10 @@
 local m = require("dafne.util").map
 
 return {
-	{ "folke/neodev.nvim", },
-    { "wakatime/vim-wakatime" },
+    { "folke/neodev.nvim", },
+
+    { "wakatime/vim-wakatime", event = "InsertEnter", },
+
     {
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
