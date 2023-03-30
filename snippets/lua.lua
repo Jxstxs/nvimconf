@@ -33,7 +33,6 @@ return {
             { c(1, { t("local "), t("") }), i(2, "fnc"), i(3, "args"), i(4, "dave goes here"), i(5) }
         )
     ),
-    s("snipf", fmt("return {{{}}}", {i(1)})),
 
     s("plugin", fmt([[
     {{
