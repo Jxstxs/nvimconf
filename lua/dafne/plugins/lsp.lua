@@ -20,10 +20,6 @@ return {
                     })
                 end,
             },
-            {
-                "jay-babu/mason-nvim-dap.nvim",
-                dependencies = { { "mfussenegger/nvim-dap", dependencies = { "rcarriga/nvim-dap-ui" }, }, },
-            },
         },
         build = ":MasonUpdate",
         keys = {
@@ -41,7 +37,6 @@ return {
                 automatic_installation = true,
             })
 
-            -- require("lspconfig").setup({})
             local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
             for _, v in ipairs(to_install["lsps"]) do
