@@ -56,6 +56,12 @@ return {
         },
     },
 
+
+    {
+        "numToStr/Comment.nvim",
+        event = "InsertEnter",
+    },
+
     {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
