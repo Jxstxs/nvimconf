@@ -88,4 +88,21 @@ M.warpper = function(fnc)
     end))
 end
 
+-- returns the path to the file without the file name
+M.get_file_path = function()
+    local file = vim.api.nvim_buf_get_name(0)
+    local separatorIndex = file:find("/[^/]*$")
+    if separatorIndex then
+        return file:sub(1, separatorIndex)
+    else return file
+    end
+end
+
+M.replace = function()
+    local under_cursor = vim.fn.expand("<cword>")
+    vim.ui.input({prompt = "Replace with: "}, function(result)
+        os.execute(" grep -r -l " .. under_cursor .. " * | xargs sed -i 's/" .. under_cursor .. "/" .. result .. "/g'")
+    end)
+end
+
 return M

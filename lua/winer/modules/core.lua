@@ -4,7 +4,7 @@ local m = utils.map
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = { { "nvim-treesitter/playground", enabled = false, cmd = "TSHighlightCapturesUnderCursor" } },
+        dependencies = { { "nvim-treesitter/playground", enabled = true, cmd = "TSHighlightCapturesUnderCursor" } },
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
@@ -51,10 +51,16 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "molecule-man/telescope-menufacture",
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         keys = {
             { m.ld("ff"), m.cmd("Telescope find_files"), desc = "[F]ind files" },
+            {
+                m.ld("f<CR>"),
+                m.cmd("lua require('telescope').extensions.menufacture.find_files()"),
+                desc = "[F]ind Files",
+            },
             { m.ld("fr"), m.cmd("lua require('telescope.builtin').resume()"), desc = "[R]esume Last" },
             { m.ld("fo"), m.cmd("Telescope oldfiles"), desc = "[O]ld files" },
             { m.ld("fb"), m.cmd("Telescope buffers"), desc = "[B]uffers" },
@@ -64,7 +70,8 @@ return {
             { m.ld("fk"), m.cmd("Telescope keymaps"), desc = "[K]eymaps" },
             { m.ld("fc"), m.cmd("Telescope commands"), desc = "[C]ommands" },
             { m.ld("fd"), m.cmd("Telescope diagnostics"), desc = "[D]iagnostics" },
-            { m.ld("fl"), m.cmd("Telescope live_grep"), desc = "[G]rep" },
+            -- { m.ld("fl"), m.cmd("Telescope live_grep"), desc = "[G]rep" },
+            { m.ld("fl"), m.cmd("lua require('telescope').extensions.menufacture.live_grep()"), desc = "[L]ive Grep" },
             {
                 m.ld("fp"),
                 function()
@@ -75,6 +82,11 @@ return {
             { m.ld("fgb"), m.cmd("Telescope git_branches"), desc = "[B]ranches" },
             { m.ld("fgc"), m.cmd("Telescope git_commits"), desc = "[C]ommits" },
             { m.ld("fgf"), m.cmd("Telescope git_bcommits"), desc = "[F]ile Commits" },
+            {
+                m.ld("f<CR>"),
+                m.cmd("lua require('telescope').extensions.menufacture.find_files()"),
+                desc = "[F]ind Files",
+            },
         },
         config = function()
             local ts = require("telescope")
@@ -98,11 +110,17 @@ return {
                         override_file_sorter = true,
                         case_mode = "smart_case",
                     },
+                    menufacture = {
+                        mappings = {
+                            main_menu = { [{ "i", "n" }] = "<C-e>" },
+                        },
+                    },
                 },
             })
             ts.load_extension("fzf")
             ts.load_extension("noice")
             ts.load_extension("notify")
+            ts.load_extension("menufacture")
         end,
     },
     {
@@ -111,7 +129,7 @@ return {
         config = function()
             require("nvim-autopairs").setup({
                 disable_in_macro = true,
-                disable_filetype = { "TelescopePrompt", "guihua", "guihua_rust", "clap_input" },
+                disable_filetype = { "TelescopePrompt", "clap_input" },
             })
         end,
     },
@@ -123,17 +141,16 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-path",
-            "delphinus/cmp-ctags",
-            "f3fora/cmp-spell",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "saadparwaiz1/cmp_luasnip",
             "doxnit/cmp-luasnip-choice",
-            "KadoBOT/cmp-plugins",
             "lukas-reineke/cmp-under-comparator",
             "onsails/lspkind.nvim",
+            "doxnit/cmp-luasnip-choice",
+            "saecki/crates.nvim",
         },
         event = "InsertEnter",
         config = function()
@@ -217,17 +234,9 @@ return {
                     { name = "luasnip_choice" },
                     { name = "path" },
                     { name = "codeium" },
-                    { name = "cmp_ctags" },
-                    -- { name = "nvim_lsp_signature_help" },
-                    {
-                        name = "plugins",
-                        option = {
-                            get_trigger_characters = function()
-                                return { "#" }
-                            end,
-                        },
-                    },
-                    -- { name = "spell" },
+                    { name = "nvim_lsp_signature_help" },
+                    { name = "crates" },
+                    -- { name = "plugins", option = { get_trigger_characters = function() return { "#" } end, }, },
                 }),
                 sorting = {
                     comparators = {
@@ -242,9 +251,6 @@ return {
                     },
                 },
             })
-
-            vim.cmd("autocmd FileType guihua lua require('cmp').setup.buffer { enabled = false }")
-            vim.cmd("autocmd FileType guihua_rust lua require('cmp').setup.buffer { enabled = false }")
 
             local capabilities =
                 require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -301,30 +307,6 @@ return {
         end,
     },
     {
-        "ziontee113/SnippetGenie",
-        enabled = false,
-        opts = {
-            snippets_directory = vim.fn.stdpath("config") .. "lua/winer/snippets/",
-            file_name = "snip_genie",
-        },
-        keys = {
-            {
-                m.ld("CN"),
-                m.cmd("lua require('SnippetGenie').create_new_snippet_or_add_placeholder()"),
-                desc = "Submit Snippet",
-            },
-            {
-                m.ld("Cn"),
-                function()
-                    require("SnippetGenie").create_new_snippet_or_add_placeholder()
-                    vim.cmd("norm! �")
-                end,
-                mode = "x",
-                desc = "[N]ew Snippet",
-            },
-        },
-    },
-    {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         event = { "BufRead *.norg", "BufNewFile *.norg" },
@@ -378,7 +360,7 @@ return {
                     ["core.norg.concealer"] = {
                         config = {
                             -- icons = { heading = { level_1 = { icon = "﮴ " }, level_2 = { icon = "  " }, level_3 = { icon = "   " }, level_4 = { icon = "    " }, level_5 = { icon = "     " }, level_6 = { icon = "      " }, }, -- list = { level_1 = { icon = "﬌" }, level_2 = { icon = "  ﬌" }, level_3 = { icon = "   ﬌" }, level_4 = { icon = "    ﬌" }, level_5 = { icon = "     ﬌" }, level_6 = { icon = "      ﬌" }, }, },
-                            icon_preset = "diamond"
+                            icon_preset = "diamond",
                         },
                     },
                     ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
@@ -412,43 +394,9 @@ return {
         end,
     },
     {
-        "ludovicchabant/vim-gutentags",
-        event = { "BufReadPre *.pas", "BufNewFile *.pas", "BufReadPre *.lpr", "BufNewFile *.lpr" },
-        dependencies = {
-            {
-                "Jxstxs/nvim-telescope-ctags-plus",
-                keys = {
-                    {
-                        m.ld("fC"),
-                        m.cmd("lua require('telescope').extensions.ctags_plus.jump_to_tag({under_word = true})"),
-                        desc = "[C]tags Undercursor",
-                    },
-                    {
-                        m.ld("fG"),
-                        m.cmd("lua require('telescope').extensions.ctags_plus.jump_to_tag()"),
-                        desc = "Ctags [G]lobal",
-                    },
-                },
-                config = function()
-                    require("telescope").load_extension("ctags_plus")
-                end,
-            },
-        },
+        "simrat39/rust-tools.nvim",
         config = function()
-            vim.cmd([[
-            let g:gutentags_trace = 1
-            let g:gutentags_project_root = [ "main.lpr", "main.lpi", "schoolnotes.lpr"]
-            let g:gutentags_add_default_project_roots = 0
-            let g:gutentags_generate_on_new = 1
-            let g:gutentags_generate_on_missing = 1
-            let g:gutentags_generate_on_write = 1
-            let g:gutentags_generate_on_empty_buffer = 0
-            let g:gutentags_ctags_extra_args = [
-            \ '--tag-relative=yes',
-            \ '--fields=+ailmnS',
-            \ ]
-            ]])
-            -- \ '--langdef=Delphi', \ '--langmap=Delphi:.pas', \ '--regex-Delphi=/(\w+)\s*=\s*class/\1/c,class/', \ '--regex-Delphi=/(\w+)\s*=\s*record/\1/r,record/', \ '--regex-Delphi=/(\w+)\s*=\s*\(/\1/e,enum/', \ '--regex-Delphi=/function\s*(\w+)\s*[;\(]/\1/f,function/', \ '--regex-Delphi=/function\s*\w+\.(\w+)\s*[;\(]/\1/f,function/', \ '--regex-Delphi=/procedure\s*(\w+)\s*[;\(]/\1/p,procedure/', \ '--regex-Delphi=/procedure\s*\w+\.(\w+)\s*[;\(]/\1/p,procedure/',
+            require("rust-tools").setup({})
         end,
     },
 }

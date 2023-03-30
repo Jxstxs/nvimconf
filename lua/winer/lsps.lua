@@ -8,4 +8,6 @@ return {
     "jsonls", -- json
     "clangd", -- c, c++
     "bashls", -- bash
+    "csharp_ls",
+    -- "omnisharp"
 }
