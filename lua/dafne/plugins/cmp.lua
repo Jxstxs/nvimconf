@@ -2,11 +2,13 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-        "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "FelipeLema/cmp-async-path",
+        "saadparwaiz1/cmp_luasnip",
+        "doxnit/cmp-luasnip-choice",
         "onsails/lspkind.nvim",
     },
     config = function()
@@ -19,10 +21,19 @@ return {
         end
 
         local cmp = require("cmp")
+        local luasnip = require("luasnip")
         cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require('luasnip').lsp_expand(args.body)
+                end,
+            },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
+            },
+            experimental = {
+                ghost_text = true,
             },
             view = { entries = { name = "custom", selection_order = "near_cursor" } },
             mapping = cmp.mapping.preset.insert({
@@ -32,6 +43,8 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
+                    elseif luasnip.expand_or_locally_jumpable() then
+                        luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -41,6 +54,8 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
                     else
                         fallback()
                     end
@@ -50,8 +65,10 @@ return {
                 { name = "nvim_lsp" },
                 { name = "buffer" },
                 { name = "nvim_lua" },
-                { name = "path" },
+                { name = "async_path" },
                 { name = "codeium" },
+                { name = "luasnip" },
+                { name = "cmp_luasnip_choice" },
                 { name = "nvim_lsp_signature_help" },
             }),
         })
