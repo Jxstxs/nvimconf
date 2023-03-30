@@ -87,4 +87,8 @@ return {
     })})),
 
     s("todo", fmt("({}) {}", {i(1, ""), i(2, "Todo")})),
+
+    s("context", fmt("#context {}", {i(1, "cnt")})),
+
+    -- s("proj", fmt([[ #context {} * ( ) {} {} ]], {i(1, "projcnt"), i(2, "title"), c(3, { --fix: hier})})),
 }
