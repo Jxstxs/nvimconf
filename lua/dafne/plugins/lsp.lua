@@ -38,4 +38,23 @@ return {
             end
         end,
     },
+
+    {
+        "glepnir/lspsaga.nvim",
+        event = "LspAttach",
+        keys = {
+            { m.ld("d"),  m.cmd("Lspsaga lsp_finder"),                 desc = "Lsp Finder" },
+            { m.ld("la"), m.cmd("Lspsaga code_action"),                desc = "Code Action" },
+            { m.ld("lr"), m.cmd("Lspsaga rename ++project"),           desc = "Rename" },
+            { m.ld("lp"), m.cmd("Lspsaga peek_definition"),            desc = "Peek Def" },
+            { m.ld("lg"), m.cmd("Lspsaga goto_definition"),            desc = "Goto Def" },
+            { m.ld("lw"), m.cmd("Lspsaga show_workspace_diagnostics"), desc = "Workspace Diagnostics" },
+            { m.ld("lo"), m.cmd("Lspsaga outline"),                    desc = "Outline" },
+        },
+        config = true,
+        dependencies = {
+            { "nvim-tree/nvim-web-devicons" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
+    },
 }
