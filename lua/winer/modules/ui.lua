@@ -270,7 +270,7 @@ return {
     },
     {
         "tamton-aquib/flirt.nvim",
-        enabled = false,
+        enabled = true,
         config = function()
             require("flirt").setup({
                 override_open = true, -- experimental
@@ -284,4 +284,10 @@ return {
             })
         end,
     },
+    {
+        "NFrid/due.nvim",
+        opts = {
+            ft = "*.norg",
+        },
+    }
 }

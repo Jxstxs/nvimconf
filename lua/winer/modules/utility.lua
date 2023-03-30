@@ -172,7 +172,10 @@ return {
             },
         },
     },
-    { "jcdickinson/codeium.nvim", event = "InsertEnter" },
+    {
+        "jcdickinson/codeium.nvim",
+        event = "InsertEnter",
+    },
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -191,6 +194,7 @@ return {
                     -- },
                 },
                 merge_keywords = true,
+                highlight = { multiline = false },
             })
         end,
     },
