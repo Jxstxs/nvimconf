@@ -10,4 +10,21 @@ return {
         "taplo",
         "vimls",
     },
+    ts = {
+        "bash",
+        "c",
+        "gitignore",
+        "lua",
+        "luadoc",
+        "markdown",
+        "markdown_inline",
+        "norg",
+        "rust",
+        "sql",
+        "toml",
+        "regex",
+    },
+    null = {
+        "stylua",
+    },
 }
