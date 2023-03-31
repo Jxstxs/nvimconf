@@ -102,11 +102,11 @@ return {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
         keys = {
-            { m.ld("gp"), m.cmd("Gitsigns preview_hunk"),              desc = "[P]review Hunk" },
+            { m.ld("gp"), m.cmd("Gitsigns preview_hunk"), desc = "[P]review Hunk" },
             { m.ld("gb"), m.cmd("Gitsigns toggle_current_line_blame"), desc = "Line [B]lame" },
-            { m.ld("gr"), m.cmd("Gitsigns reset_hunk"),                desc = "[R]eset Hunk" },
-            { m.ld("gl"), m.cmd("Gitsigns toggle_linehl"),             desc = "[L]ine Highlight" },
-            { m.ld("gd"), m.cmd("Gitsigns toggle_deleted"),            desc = "Show [D]eleted" },
+            { m.ld("gr"), m.cmd("Gitsigns reset_hunk"), desc = "[R]eset Hunk" },
+            { m.ld("gl"), m.cmd("Gitsigns toggle_linehl"), desc = "[L]ine Highlight" },
+            { m.ld("gd"), m.cmd("Gitsigns toggle_deleted"), desc = "Show [D]eleted" },
         },
         opts = {
             numhl = true,
@@ -140,7 +140,7 @@ return {
         end,
     },
 
-    { "stevearc/dressing.nvim", },
+    { "stevearc/dressing.nvim" },
 
     {
         "glepnir/dashboard-nvim",
