@@ -143,54 +143,64 @@ return {
 
     {
         "glepnir/dashboard-nvim",
-        config = function()
-            require("dashboard").setup({
-                theme = "doom",
-                config = {
-                    header = {
-                        "██████╗░░█████╗░███████╗███╗░░██╗███████╗",
-                        "██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝",
-                        "██║░░██║███████║█████╗░░██╔██╗██║█████╗░░",
-                        "██║░░██║██╔══██║██╔══╝░░██║╚████║██╔══╝░░",
-                        "██████╔╝██║░░██║██║░░░░░██║░╚███║███████╗",
-                        "╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚══╝╚══════╝",
-                    },
-                    center = {
-                        section({
-                            desc = "Find Files",
-                            key = "f",
-                            keymap = "SPC f f",
-                            action = "lua require('telescope.builtin').find_files()",
-                        }),
-                        section({
-                            desc = "Recent Files",
-                            key = "r",
-                            keymap = "SPC f o",
-                            action = "lua require('telescope.builtin').oldfiles()",
-                        }),
-                        section({
-                            desc = "Edit Config",
-                            key = "c",
-                            keymap = "SPC V c",
-                            action = "e $MYVIMRC",
-                        }),
-                        section({
-                            desc = "Open Lazy",
-                            key = "l",
-                            keymap = "SPC L",
-                            action = "Lazy",
-                        }),
-                        section({
-                            desc = "Quit",
-                            key = "q",
-                            keymap = "Z Z",
-                            action = "qa!",
-                        }),
-                    },
-                    footer = { "Dave Raves All Day Long" },
-                },
-            })
-        end,
         dependencies = { { "nvim-tree/nvim-web-devicons" } },
+        opts = {
+            theme = "doom",
+            config = {
+                header = {
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "██████╗░░█████╗░███████╗███╗░░██╗███████╗",
+                    "██╔══██╗██╔══██╗██╔════╝████╗░██║██╔════╝",
+                    "██║░░██║███████║█████╗░░██╔██╗██║█████╗░░",
+                    "██║░░██║██╔══██║██╔══╝░░██║╚████║██╔══╝░░",
+                    "██████╔╝██║░░██║██║░░░░░██║░╚███║███████╗",
+                    "╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚══╝╚══════╝",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                },
+                center = {
+                    section({
+                        desc = "Find Files",
+                        key = "f",
+                        keymap = "SPC f f",
+                        action = "lua require('telescope').extensions.menufacture.find_files()",
+                    }),
+                    section({
+                        desc = "Recent Files",
+                        key = "r",
+                        keymap = "SPC f o",
+                        action = "lua require('telescope.builtin').oldfiles()",
+                    }),
+                    section({
+                        desc = "Edit Config",
+                        key = "c",
+                        keymap = "SPC V c",
+                        action = "e $MYVIMRC",
+                    }),
+                    section({
+                        desc = "Open Lazy",
+                        key = "l",
+                        keymap = "SPC L",
+                        action = "Lazy",
+                    }),
+                    section({
+                        desc = "Quit",
+                        key = "q",
+                        keymap = "Z Z",
+                        action = "qa!",
+                    }),
+                },
+                footer = { "Dafne Raves All Day Long" },
+            },
+        },
     },
 }
