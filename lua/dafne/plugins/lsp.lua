@@ -58,6 +58,7 @@ return {
             { m.ld("lg"), m.cmd("Lspsaga goto_definition"),            desc = "Goto Def" },
             { m.ld("lw"), m.cmd("Lspsaga show_workspace_diagnostics"), desc = "Workspace Diagnostics" },
             { m.ld("lo"), m.cmd("Lspsaga outline"),                    desc = "Outline" },
+            { m.ld("lh"), m.cmd("Lspsaga hover_doc"),                  desc = "Hover" },
             { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"),   desc = "Rename" },
         },
         config = true,
