@@ -17,7 +17,7 @@ return {
             { m.ld("fr"), m.lua("require('telescope.builtin').resume()"),                       desc = "[R]esume Last" },
             { m.ld("fo"), m.lua("require('telescope.builtin').oldfiles()"),                     desc = "[O]ldfiles" },
             { m.ld("fb"), m.lua("require('telescope.builtin').buffers()"),                      desc = "[B]uffers" },
-            { m.ld("fh"), m.lua("require('telescope.builtin').help_tags"),                      desc = "[H]elp Tags" },
+            { m.ld("fh"), m.lua("require('telescope.builtin').help_tags()"),                      desc = "[H]elp Tags" },
             { m.ld("fd"), m.cmd("Telescope diagnostics"),                                       desc = "[D]iagnostics" },
             { m.ld("fl"), m.cmd("lua require('telescope').extensions.menufacture.live_grep()"), desc = "[L]ive Grep" },
             {
