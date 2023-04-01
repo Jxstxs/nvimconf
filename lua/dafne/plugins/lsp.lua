@@ -61,7 +61,19 @@ return {
             { m.ld("lh"), m.cmd("Lspsaga hover_doc"),                  desc = "Hover" },
             { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"),   desc = "Rename" },
         },
-        config = true,
+        config = function()
+            require("lspsaga").setup({})
+
+            local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
+            vim.api.nvim_create_autocmd("CursorHold", {
+                callback = function()
+                    vim.api.nvim_exec("Lspsaga show_line_diagnostics ++unfocus", false)
+                    -- FIX: look at on how to make it noice with flirt
+                    -- vim.diagnostic.open_float()
+                end,
+                group = diag_float_grp,
+            })
+        end,
         dependencies = {
             { "nvim-tree/nvim-web-devicons" },
             { "nvim-treesitter/nvim-treesitter" }
