@@ -139,4 +139,13 @@ return {
             require("nvim-autopairs").setup({})
         end
     },
+
+    {
+        "phaazon/hop.nvim",
+        keys = {
+            {m.ld("h"), m.cmd("HopWord"), desc = "Hop Word"},
+            {m.ld("H"), m.cmd("HopChar1"), desc = "Hop Char"},
+        },
+        config = true,
+    }
 }
