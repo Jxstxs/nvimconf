@@ -14,11 +14,23 @@ return {
                 m.lua("require('telescope').extensions.menufacture.find_files()"),
                 desc = "[F]ind Files",
             },
-            { m.ld("fr"), m.lua("require('telescope.builtin').resume()"),                       desc = "[R]esume Last" },
-            { m.ld("fo"), m.lua("require('telescope.builtin').oldfiles()"),                     desc = "[O]ldfiles" },
-            { m.ld("fb"), m.lua("require('telescope.builtin').buffers()"),                      desc = "[B]uffers" },
-            { m.ld("fh"), m.lua("require('telescope.builtin').help_tags()"),                      desc = "[H]elp Tags" },
-            { m.ld("fd"), m.cmd("Telescope diagnostics"),                                       desc = "[D]iagnostics" },
+            {
+                m.ld("fr"),
+                m.lua("require('telescope.builtin').resume()"),
+                desc = "[R]esume Last",
+            },
+            { m.ld("fo"), m.lua("require('telescope.builtin').oldfiles()"), desc = "[O]ldfiles" },
+            { m.ld("fb"), m.lua("require('telescope.builtin').buffers()"), desc = "[B]uffers" },
+            {
+                m.ld("fh"),
+                m.lua("require('telescope.builtin').help_tags()"),
+                desc = "[H]elp Tags",
+            },
+            {
+                m.ld("fd"),
+                m.cmd("Telescope diagnostics"),
+                desc = "[D]iagnostics",
+            },
             { m.ld("fl"), m.cmd("lua require('telescope').extensions.menufacture.live_grep()"), desc = "[L]ive Grep" },
             {
                 m.ld("fp"),
@@ -28,7 +40,7 @@ return {
                 desc = "[P]lugin files",
             },
             { m.ld("fgb"), m.cmd("Telescope git_branches"), desc = "[B]ranches" },
-            { m.ld("fgc"), m.cmd("Telescope git_commits"),  desc = "[C]ommits" },
+            { m.ld("fgc"), m.cmd("Telescope git_commits"), desc = "[C]ommits" },
             { m.ld("fgf"), m.cmd("Telescope git_bcommits"), desc = "[F]ile Commits" },
             {
                 m.ld("f<CR>"),

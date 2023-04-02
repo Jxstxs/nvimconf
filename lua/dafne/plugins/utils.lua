@@ -2,9 +2,9 @@
 local m = require("dafne.util").map
 
 return {
-    { "folke/neodev.nvim", },
+    { "folke/neodev.nvim" },
 
-    { "wakatime/vim-wakatime", event = "InsertEnter", },
+    { "wakatime/vim-wakatime", event = "InsertEnter" },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -27,7 +27,7 @@ return {
                     ["s"] = "open_vsplit",
                     ["H"] = "prev_source",
                     ["L"] = "next_source",
-                }
+                },
             },
             filesystem = {
                 filtered_items = {
@@ -51,8 +51,8 @@ return {
                         ["u"] = "git_unstage_file",
                         ["c"] = "git_commit",
                         ["p"] = "git_push",
-                    }
-                }
+                    },
+                },
             },
         },
     },
@@ -137,15 +137,15 @@ return {
         event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({})
-        end
+        end,
     },
 
     {
         "phaazon/hop.nvim",
         keys = {
-            {m.ld("h"), m.cmd("HopWord"), desc = "Hop Word"},
-            {m.ld("H"), m.cmd("HopChar1"), desc = "Hop Char"},
+            { m.ld("h"), m.cmd("HopWord"), desc = "Hop Word" },
+            { m.ld("H"), m.cmd("HopChar1"), desc = "Hop Char" },
         },
         config = true,
-    }
+    },
 }
