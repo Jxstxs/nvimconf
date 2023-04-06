@@ -1,3 +1,5 @@
+local m = require("dafne.util").map
+
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -20,5 +22,12 @@ return {
         "m-demare/hlargs.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         event = "BufReadPre",
+    },
+
+    {
+        "haringsrob/nvim_context_vt",
+        keys = {
+            { m.ld("Cc"), m.cmd("NvimContextVtToggle"), desc = "Toggle NvimContextVt" },
+        },
     },
 }
