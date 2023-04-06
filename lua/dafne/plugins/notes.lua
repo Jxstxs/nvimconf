@@ -89,4 +89,13 @@ return {
             })
         end,
     },
+
+    {
+        "NFrid/due.nvim",
+        ft = "norg",
+        keys = {
+            { m.ld("nd"), m.lua("require('due_nvim').redraw(0)"), desc = "Redraw Dues" },
+            { m.ld("nc"), m.lua("require('due_nvim').clear(0)"), desc = "Clear Dues" },
+        },
+    },
 }
