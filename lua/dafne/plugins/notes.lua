@@ -12,8 +12,8 @@ return {
         ft = "norg",
         keys = {
             { m.ld("nf"), m.cmd("norm ggVG="), desc = "Formats a Neorg File" },
-            { m.ld("njj"), m.cmd("neorg journal today"), desc = "todays [j]ournal" },
-            { m.ld("njt"), m.cmd("neorg journal tomorrow"), desc = "[t]omorrows journal" },
+            { m.ld("njj"), m.cmd("Neorg journal today"), desc = "todays [j]ournal" },
+            { m.ld("njt"), m.cmd("Neorg journal tomorrow"), desc = "[t]omorrows journal" },
             { m.ld("njy"), m.cmd("Neorg journal yesterday"), desc = "[Y]esterdays Journal" },
             { m.ld("njT"), m.cmd("Neorg journal template"), desc = "[T]emplate Journal" },
             { m.ld("njc"), ":Neorg journal custom ", desc = "[C]ustom Journal" },
