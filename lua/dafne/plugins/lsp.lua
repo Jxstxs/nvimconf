@@ -38,6 +38,15 @@ return {
 
             require("mason-null-ls").setup_handlers()
 
+            require("null-ls").register({
+                name = "Node Actions",
+                method = { require("null-ls").methods.CODE_ACTION },
+                filetypes = { "_all" },
+                generator = {
+                    fn = require("ts-node-action").available_actions,
+                },
+            })
+
             local capabilities =
                 require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
             for _, v in ipairs(to_install["lsps"]) do
