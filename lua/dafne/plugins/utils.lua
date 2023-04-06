@@ -10,11 +10,17 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
+            "mrbjarksen/neo-tree-diagnostics.nvim",
         },
         keys = {
             { m.ld("e"), m.lua("require('neo-tree').float()"), desc = "Neotree" },
         },
         opts = {
+            sources = {
+                "filesystem",
+                "diagnostics",
+                "git_status",
+            },
             close_if_last_window = true,
             popup_border_style = "single",
             sort_case_insensitive = true,
