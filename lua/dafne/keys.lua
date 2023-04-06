@@ -15,7 +15,7 @@ m.n(m.ld("L"), m.cmd("Lazy"), { desc = "Open [L]azy UI" })
 m.n(m.ld("Q"), m.cmd("qa!"), { desc = "[Q]uit Nvim" })
 
 -- Reset Hightlights after search
-m.n(m.ld("h"), m.cmd("nohls"), { desc = "Reset [H]ighlights" })
+m.n(m.ld("r"), m.cmd("nohls"), { desc = "Reset [H]ighlights" })
 
 -- Source Current File
 m.n(m.ld("Vs"), function()
