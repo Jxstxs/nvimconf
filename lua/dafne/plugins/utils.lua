@@ -154,6 +154,18 @@ return {
     },
 
     {
+        "saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        dependencies = { "nvim-lua/plenary.nvim" },
+        keys = {
+            { m.ld("Rc"), m.lua("require('crates').show_popup()"), desc = "Open Crate Popup" },
+            { m.ld("Ru"), m.lua("require('crates').upgrade_crate()"), desc = "Update Crate" },
+            { m.ld("RU"), m.lua("require('crates').upgrade_all_crates()"), desc = "Update all Crates" },
+        },
+        config = true,
+    },
+
+    {
         "folke/todo-comments.nvim",
         event = "BufRead",
         dependencies = { "nvim-telescope/telescope.nvim" },
