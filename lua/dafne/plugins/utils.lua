@@ -153,6 +153,8 @@ return {
         config = true,
     },
 
+    { "ckolkey/ts-node-action", event = "LspAttach", dependencies = { "nvim-treesitter" }, opts = {} },
+
     {
         "SmiteshP/nvim-navbuddy",
         event = "LspAttach",
