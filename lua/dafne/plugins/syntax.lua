@@ -30,4 +30,10 @@ return {
             { m.ld("Cc"), m.cmd("NvimContextVtToggle"), desc = "Toggle NvimContextVt" },
         },
     },
+
+    {
+        "jubnzv/virtual-types.nvim",
+        event = "BufReadPre",
+        -- FIX: add to on_attach
+    },
 }
