@@ -153,6 +153,14 @@ return {
         config = true,
     },
 
+    {
+        "folke/todo-comments.nvim",
+        event = "BufRead",
+        dependencies = { "nvim-telescope/telescope.nvim" },
+        keys = { { m.ld("ft"), m.cmd("TodoTelescope"), desc = "Search Todos" } },
+        opts = { highlight = { multiline = false } },
+    },
+
     { "ckolkey/ts-node-action", event = "LspAttach", dependencies = { "nvim-treesitter" }, opts = {} },
 
     {
