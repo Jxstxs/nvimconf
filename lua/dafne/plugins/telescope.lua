@@ -6,6 +6,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "molecule-man/telescope-menufacture",
+            "debugloop/telescope-undo.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         keys = {
@@ -25,6 +26,11 @@ return {
                 m.ld("fh"),
                 m.lua("require('telescope.builtin').help_tags()"),
                 desc = "[H]elp Tags",
+            },
+            {
+                m.ld("fu"),
+                m.lua("require('telescope').extensions.undo.undo()"),
+                desc = "Undo",
             },
             {
                 m.ld("fd"),
@@ -80,6 +86,7 @@ return {
             ts.load_extension("fzf")
             ts.load_extension("noice")
             ts.load_extension("menufacture")
+            ts.load_extension("undo")
         end,
     },
 }
