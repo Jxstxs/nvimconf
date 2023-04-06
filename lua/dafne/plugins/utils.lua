@@ -108,6 +108,7 @@ return {
     {
         "numToStr/Comment.nvim",
         event = "InsertEnter",
+        -- FIX: Need to check this again and create keys for it
     },
 
     {
@@ -142,6 +143,19 @@ return {
         config = function()
             require("nvim-autopairs").setup({})
         end,
+    },
+
+    {
+        "Partysun/cheat.nvim",
+        keys = {
+            { m.ld("Cs"), m.lua("require('cheat').open_chtsh_popup(vim.fn.expand('<cword>'))"), desc = "Cheat Sheet" },
+            {
+                m.ld("CS"),
+                m.lua("require('cheat').input()"),
+                desc = "Cheat Sheet Search",
+            },
+        },
+        config = true,
     },
 
     {
