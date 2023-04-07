@@ -188,12 +188,4 @@ return {
     },
 
     { "ckolkey/ts-node-action", event = "LspAttach", dependencies = { "nvim-treesitter" }, opts = {} },
-
-    {
-        "SmiteshP/nvim-navbuddy",
-        event = "LspAttach",
-        keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
-        dependencies = { "neovim/nvim-lspconfig", "SmiteshP/nvim-navic", "MunifTanjim/nui.nvim" },
-        opts = { lsp = { auto_attach = true } },
-    },
 }

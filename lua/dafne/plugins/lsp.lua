@@ -13,6 +13,12 @@ return {
                     "jose-elias-alvarez/null-ls.nvim",
                 },
             },
+            {
+                "SmiteshP/nvim-navbuddy",
+                keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
+                dependencies = { "SmiteshP/nvim-navic", "MunifTanjim/nui.nvim" },
+                opts = { lsp = { auto_attach = false } },
+            },
         },
         build = ":MasonUpdate",
         keys = {
@@ -52,6 +58,9 @@ return {
             for _, v in ipairs(to_install["lsps"]) do
                 require("lspconfig")[v].setup({
                     capabilities = capabilities,
+                    on_attach = function(client, bufnr)
+                        require("nvim-navbuddy").attach(client, bufnr)
+                    end,
                 })
             end
         end,
