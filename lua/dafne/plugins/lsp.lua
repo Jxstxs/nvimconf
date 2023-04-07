@@ -60,6 +60,7 @@ return {
                     capabilities = capabilities,
                     on_attach = function(client, bufnr)
                         require("nvim-navbuddy").attach(client, bufnr)
+                        require("virtualtypes").on_attach()
                     end,
                 })
             end
