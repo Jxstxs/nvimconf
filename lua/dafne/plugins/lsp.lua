@@ -12,7 +12,13 @@ return {
                 "SmiteshP/nvim-navbuddy",
                 keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
                 dependencies = { "SmiteshP/nvim-navic", "MunifTanjim/nui.nvim" },
-                opts = { lsp = { auto_attach = true } },
+                opts = {
+                    lsp = { auto_attach = true },
+                    source_buffer = {
+                        follow_node = false,
+                        highlight = true,
+                    },
+                },
             },
         },
         build = ":MasonUpdate",
