@@ -7,12 +7,7 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
-            {
-                "jay-babu/mason-null-ls.nvim",
-                dependencies = {
-                    "jose-elias-alvarez/null-ls.nvim",
-                },
-            },
+            "jose-elias-alvarez/null-ls.nvim",
             {
                 "SmiteshP/nvim-navbuddy",
                 keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
@@ -35,14 +30,6 @@ return {
                 ensure_installed = to_install["lsps"],
                 automatic_installation = true,
             })
-
-            require("mason-null-ls").setup({
-                ensure_installed = to_install["null"],
-                automatic_installation = true,
-                automatic_setup = true,
-            })
-
-            require("mason-null-ls").setup_handlers()
 
             require("null-ls").register({
                 name = "Node Actions",
