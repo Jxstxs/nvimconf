@@ -41,8 +41,8 @@ return {
                             end,
                         },
                     },
-                    ["core.norg.esupports.metagen"] = { config = { type = "auto" } },
-                    ["core.norg.journal"] = {
+                    ["core.esupports.metagen"] = { config = { type = "auto" } },
+                    ["core.journal"] = {
                         config = {
                             journal_folder = "/doc/journal",
                             workspace = "scholr",
@@ -50,8 +50,8 @@ return {
                     },
                     ["core.export"] = { config = {} },
                     ["core.export.markdown"] = { config = { extensions = { "all" } } },
-                    ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
-                    ["core.norg.concealer"] = {
+                    ["core.completion"] = { config = { engine = "nvim-cmp" } },
+                    ["core.concealer"] = {
                         config = {
                             icon_preset = "diamond",
                             folds = false,
@@ -61,7 +61,7 @@ return {
                             },
                         },
                     },
-                    ["core.norg.dirman"] = {
+                    ["core.dirman"] = {
                         config = {
                             workspaces = {
                                 notes = "~/repos/personal/notes/",
