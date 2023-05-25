@@ -11,18 +11,18 @@ return {
         build = ":Neorg sync-parsers",
         ft = "norg",
         keys = {
-            { m.ld("nf"), m.cmd("norm ggVG="), desc = "Formats a Neorg File" },
-            { m.ld("njj"), m.cmd("Neorg journal today"), desc = "todays [j]ournal" },
-            { m.ld("njt"), m.cmd("Neorg journal tomorrow"), desc = "[t]omorrows journal" },
-            { m.ld("njy"), m.cmd("Neorg journal yesterday"), desc = "[Y]esterdays Journal" },
-            { m.ld("njT"), m.cmd("Neorg journal template"), desc = "[T]emplate Journal" },
-            { m.ld("njc"), ":Neorg journal custom ", desc = "[C]ustom Journal" },
-            { m.ld("nn"), m.cmd("Neorg news new"), desc = "[N]ews in Neorg" },
-            { m.ld("nN"), m.cmd("Neorg news all"), desc = "[N]ews in Neorg (All)" },
-            { m.ld("nt"), m.cmd("Neorg tangle current-file"), desc = "[T]angle Code to file" },
-            { m.ld("nu"), m.cmd("Neorg upgrade current-file"), desc = "[U]pgrades Current File" },
-            { m.ld("nU"), m.cmd("Neorg upgrade current-directory"), desc = "[U]pgrades Current Directory" },
-            { m.ld("nF"), m.cmd("Telescope neorg find_linkable"), desc = "[F]inds Everything" },
+            { m.ld("nf"),  m.cmd("norm ggVG="),                      desc = "Formats a Neorg File" },
+            { m.ld("njj"), m.cmd("Neorg journal today"),             desc = "todays [j]ournal" },
+            { m.ld("njt"), m.cmd("Neorg journal tomorrow"),          desc = "[t]omorrows journal" },
+            { m.ld("njy"), m.cmd("Neorg journal yesterday"),         desc = "[Y]esterdays Journal" },
+            { m.ld("njT"), m.cmd("Neorg journal template"),          desc = "[T]emplate Journal" },
+            { m.ld("njc"), ":Neorg journal custom ",                 desc = "[C]ustom Journal" },
+            { m.ld("nn"),  m.cmd("Neorg news new"),                  desc = "[N]ews in Neorg" },
+            { m.ld("nN"),  m.cmd("Neorg news all"),                  desc = "[N]ews in Neorg (All)" },
+            { m.ld("nt"),  m.cmd("Neorg tangle current-file"),       desc = "[T]angle Code to file" },
+            { m.ld("nu"),  m.cmd("Neorg upgrade current-file"),      desc = "[U]pgrades Current File" },
+            { m.ld("nU"),  m.cmd("Neorg upgrade current-directory"), desc = "[U]pgrades Current Directory" },
+            { m.ld("nF"),  m.cmd("Telescope neorg find_linkable"),   desc = "[F]inds Everything" },
         },
         config = function()
             require("neorg").setup({
@@ -64,8 +64,8 @@ return {
                     ["core.dirman"] = {
                         config = {
                             workspaces = {
-                                notes = "~/repos/personal/notes/",
-                                scholr = "~/repos/personal/scholr/",
+                                notes = "~/.repos/personal/notes/",
+                                scholr = "~/.repos/personal/schule/scholr/",
                             },
                             index = "index.norg",
                         },
@@ -95,7 +95,14 @@ return {
         ft = "norg",
         keys = {
             { m.ld("nd"), m.lua("require('due_nvim').redraw(0)"), desc = "Redraw Dues" },
-            { m.ld("nc"), m.lua("require('due_nvim').clear(0)"), desc = "Clear Dues" },
+            { m.ld("nc"), m.lua("require('due_nvim').clear(0)"),  desc = "Clear Dues" },
+        },
+    },
+
+    {
+        "dhruvasagar/vim-table-mode",
+        keys = {
+            { m.ld("ntt"), m.cmd("TableModeToggle"), desc = "Toggle Table Mode" },
         },
     },
 }
