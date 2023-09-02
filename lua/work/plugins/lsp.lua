@@ -1,4 +1,4 @@
-local m = require("dafne.util").map
+local m = require("work.util").map
 
 return {
     {
@@ -7,7 +7,6 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
-            "jose-elias-alvarez/null-ls.nvim",
             {
                 "SmiteshP/nvim-navbuddy",
                 keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
@@ -26,7 +25,7 @@ return {
             { m.ld("M"), m.cmd("Mason"), desc = "Open [M]ason" },
         },
         config = function()
-            local to_install = require("dafne.installs")
+            local to_install = require("work.installs")
 
             require("mason").setup({
                 ui = { border = "single" },
@@ -35,15 +34,6 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = to_install["lsps"],
                 automatic_installation = true,
-            })
-
-            require("null-ls").register({
-                name = "Node Actions",
-                method = { require("null-ls").methods.CODE_ACTION },
-                filetypes = { "_all" },
-                generator = {
-                    fn = require("ts-node-action").available_actions,
-                },
             })
 
             local capabilities =

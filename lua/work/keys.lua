@@ -1,4 +1,4 @@
-local m = require("dafne.util").map
+local m = require("work.util").map
 
 -- Setting <leader>
 vim.keymap.set("", "<Space>", "<NOP>")

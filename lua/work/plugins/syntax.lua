@@ -1,4 +1,4 @@
-local m = require("dafne.util").map
+local m = require("work.util").map
 
 return {
     {
@@ -7,7 +7,7 @@ return {
         dependencies = { "nvim-treesitter/playground" },
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = require("dafne.installs").ts,
+                ensure_installed = require("work.installs").ts,
                 sync_install = false,
                 auto_install = true,
                 highlight = {
@@ -30,18 +30,5 @@ return {
         "m-demare/hlargs.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         event = "BufReadPre",
-    },
-
-    {
-        "haringsrob/nvim_context_vt",
-        keys = {
-            { m.ld("Cc"), m.cmd("NvimContextVtToggle"), desc = "Toggle NvimContextVt" },
-        },
-    },
-
-    {
-        "jubnzv/virtual-types.nvim",
-        event = "BufReadPre",
-        -- FIX: add to on_attach
     },
 }

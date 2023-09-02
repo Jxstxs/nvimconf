@@ -71,7 +71,6 @@ return {
                 { name = "neorg" },
                 { name = "nvim_lua" },
                 { name = "async_path" },
-                { name = "codeium" },
                 { name = "luasnip" },
                 { name = "cmp_luasnip_choice" },
                 { name = "nvim_lsp_signature_help" },

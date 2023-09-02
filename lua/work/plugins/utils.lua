@@ -1,8 +1,8 @@
 ---@diagnostic disable: deprecated
-local m = require("dafne.util").map
+local m = require("work.util").map
 
 return {
-    { "wakatime/vim-wakatime", event = "InsertEnter" },
+    { "wakatime/vim-wakatime",  event = "InsertEnter" },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -13,7 +13,7 @@ return {
             "mrbjarksen/neo-tree-diagnostics.nvim",
         },
         keys = {
-            { m.ld("e"), m.lua("require('neo-tree').float()"), desc = "Neotree" },
+            { m.ld("e"), m.cmd("Neotree float"), desc = "Neotree" },
         },
         opts = {
             sources = {
@@ -108,7 +108,6 @@ return {
     {
         "numToStr/Comment.nvim",
         event = "InsertEnter",
-        -- FIX: Need to check this again and create keys for it
     },
 
     {
@@ -121,23 +120,6 @@ return {
     },
 
     {
-        "jcdickinson/codeium.nvim",
-        event = "InsertEnter",
-        dependencies = {
-            { "jcdickinson/http.nvim", build = "cargo build --workspace --release" },
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-        config = true,
-    },
-
-    {
-        "simrat39/rust-tools.nvim",
-        ft = "rust",
-        config = true,
-    },
-
-    {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
@@ -146,35 +128,10 @@ return {
     },
 
     {
-        "Partysun/cheat.nvim",
-        keys = {
-            { m.ld("Cs"), m.lua("require('cheat').open_chtsh_popup(vim.fn.expand('<cword>'))"), desc = "Cheat Sheet" },
-            {
-                m.ld("CS"),
-                m.lua("require('cheat').input()"),
-                desc = "Cheat Sheet Search",
-            },
-        },
-        config = true,
-    },
-
-    {
         "phaazon/hop.nvim",
         keys = {
-            { m.ld("h"), m.cmd("HopWord"), desc = "Hop Word" },
+            { m.ld("h"), m.cmd("HopWord"),  desc = "Hop Word" },
             { m.ld("H"), m.cmd("HopChar1"), desc = "Hop Char" },
-        },
-        config = true,
-    },
-
-    {
-        "saecki/crates.nvim",
-        event = { "BufRead Cargo.toml" },
-        dependencies = { "nvim-lua/plenary.nvim" },
-        keys = {
-            { m.ld("Rc"), m.lua("require('crates').show_popup()"), desc = "Open Crate Popup" },
-            { m.ld("Ru"), m.lua("require('crates').upgrade_crate()"), desc = "Update Crate" },
-            { m.ld("RU"), m.lua("require('crates').upgrade_all_crates()"), desc = "Update all Crates" },
         },
         config = true,
     },
@@ -187,5 +144,5 @@ return {
         opts = { highlight = { multiline = false } },
     },
 
-    { "ckolkey/ts-node-action", event = "LspAttach", dependencies = { "nvim-treesitter" }, opts = {} },
+    { "ckolkey/ts-node-action", event = "LspAttach",  dependencies = { "nvim-treesitter" }, opts = {} },
 }
