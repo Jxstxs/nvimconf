@@ -42,7 +42,9 @@ return {
                 },
             },
             buffers = {
-                follow_current_file = true,
+                follow_current_file = {
+                    enable = true,
+                },
                 group_empty_dirs = true,
                 show_unloaded = true,
             },
