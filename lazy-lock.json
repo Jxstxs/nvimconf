@@ -43,5 +43,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "3094ead8edfa9040de2421deddec55d3762f64d1" },
   "ts-node-action": { "branch": "master", "commit": "bb1377868a2cdb7cb12da4f09b7f57cbaa516961" },
   "vim-table-mode": { "branch": "master", "commit": "9555a3e6e5bcf285ec181b7fc983eea90500feb4" },
-  "vim-wakatime": { "branch": "master", "commit": "0d2efa2daff34b27b0d227d4c3b136811c93db93" }
+  "vim-wakatime": { "branch": "master", "commit": "0d2efa2daff34b27b0d227d4c3b136811c93db93" },
+  "which-key.nvim": { "branch": "main", "commit": "7ccf476ebe0445a741b64e36c78a682c1c6118b7" }
 }

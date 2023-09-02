@@ -5,6 +5,22 @@ return {
     { "wakatime/vim-wakatime",  event = "InsertEnter" },
 
     {
+        "mfussenegger/nvim-lint",
+        event = "BufWritePost"
+    },
+
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+        },
+    },
+
+    {
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
