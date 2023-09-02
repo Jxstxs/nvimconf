@@ -9,6 +9,10 @@ return {
         "sqls",
         "taplo",
         "vimls",
+        "html",
+        "cssls",
+        "pylsp",
+        "csharp_ls",
     },
     ts = {
         "bash",
@@ -23,6 +27,7 @@ return {
         "sql",
         "toml",
         "regex",
+        "python",
     },
     null = {
         "stylua",

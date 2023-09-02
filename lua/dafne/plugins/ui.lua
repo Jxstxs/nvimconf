@@ -117,7 +117,7 @@ return {
 
     {
         "tamton-aquib/flirt.nvim",
-        enabled = true,
+        enabled = false,
         config = function()
             require("flirt").setup({
                 override_open = true,

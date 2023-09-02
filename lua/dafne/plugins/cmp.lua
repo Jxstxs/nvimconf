@@ -33,7 +33,7 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             experimental = {
-                ghost_text = true,
+                ghost_text = false,
             },
             view = { entries = { name = "custom", selection_order = "near_cursor" } },
             mapping = cmp.mapping.preset.insert({

@@ -15,7 +15,7 @@ return {
                 opts = {
                     lsp = { auto_attach = true },
                     source_buffer = {
-                        follow_node = false,
+                        follow_node = true,
                         highlight = true,
                     },
                 },
@@ -73,15 +73,15 @@ return {
         config = function()
             require("lspsaga").setup({})
 
-            local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
-            vim.api.nvim_create_autocmd("CursorHold", {
-                callback = function()
-                    vim.api.nvim_exec("Lspsaga show_line_diagnostics ++unfocus", false)
-                    -- FIX: look at on how to make it noice with flirt
-                    -- vim.diagnostic.open_float()
-                end,
-                group = diag_float_grp,
-            })
+            -- local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
+            -- vim.api.nvim_create_autocmd("CursorHold", {
+            --     callback = function()
+            --            vim.api.nvim_exec("Lspsaga show_line_diagnostics ++unfocus", false)
+            --         -- FIX: look at on how to make it noice with flirt
+            --         -- vim.diagnostic.open_float()
+            --     end,
+            --     group = diag_float_grp,
+            -- })
         end,
         dependencies = {
             { "nvim-tree/nvim-web-devicons" },
