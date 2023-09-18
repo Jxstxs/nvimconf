@@ -5,6 +5,23 @@ return {
     { "wakatime/vim-wakatime",  event = "InsertEnter" },
 
     {
+        "mfussenegger/nvim-lint",
+        event = "BufWritePost"
+    },
+
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            window = { border = "single" }
+        },
+    },
+
+    {
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
@@ -42,7 +59,9 @@ return {
                 },
             },
             buffers = {
-                follow_current_file = true,
+                follow_current_file = {
+                    enable = true,
+                },
                 group_empty_dirs = true,
                 show_unloaded = true,
             },
