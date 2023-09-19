@@ -10,6 +10,7 @@ return {
     ts = {
         "bash",
         "c",
+        "c_sharp",
         "gitignore",
         "lua",
         "norg",

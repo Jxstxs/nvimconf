@@ -162,6 +162,4 @@ return {
         keys = { { m.ld("ft"), m.cmd("TodoTelescope"), desc = "Search Todos" } },
         opts = { highlight = { multiline = false } },
     },
-
-    { "ckolkey/ts-node-action", event = "LspAttach",  dependencies = { "nvim-treesitter" }, opts = {} },
 }
