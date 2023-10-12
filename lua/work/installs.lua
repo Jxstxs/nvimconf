@@ -6,6 +6,7 @@ return {
         "lua_ls",
         "sqls",
         "omnisharp",
+        "powershell_es",
     },
     ts = {
         "bash",
