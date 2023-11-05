@@ -6,6 +6,9 @@ return {
         "lua_ls",
         "sqls",
         "omnisharp",
+        "angularls",
+        "tsserver",
+        "html",
     },
     ts = {
         "bash",
