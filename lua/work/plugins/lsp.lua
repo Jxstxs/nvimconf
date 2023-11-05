@@ -12,6 +12,9 @@ return {
                 keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
                 dependencies = { "SmiteshP/nvim-navic", "MunifTanjim/nui.nvim" },
                 opts = {
+                    window = {
+                        size = "80%"
+                    },
                     lsp = { auto_attach = true },
                     source_buffer = {
                         follow_node = true,
