@@ -5,7 +5,7 @@ return {
         "omnisharp",
         "jsonls",
         "lua_ls",
-        "sqls",
+        "sqlls",
         "tsserver",
         "html",
         "ltex",
