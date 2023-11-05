@@ -29,9 +29,6 @@ m.n(m.ld("Vc"), function()
     vim.cmd("e $MYVIMRC")
 end, { desc = "Edit [C]onfig" })
 
--- Better Pasting
--- FIX: map.v("p", "_dP") dont work (just pastes the selected text)
-
 -- Better Shifting
 m.v("<", "<gv")
 m.v(">", ">gv")

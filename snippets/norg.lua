@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
     s("ttdt", fmt([[
     * Things To Do Today

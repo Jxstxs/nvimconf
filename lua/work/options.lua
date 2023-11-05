@@ -38,8 +38,8 @@ vim.opt.ruler = false
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
-vim.opt.scrolloff = 15
-vim.opt.sidescrolloff = 15
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")

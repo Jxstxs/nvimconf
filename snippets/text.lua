@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
     s("row",
         fmt("| {} | {} | {} |", { i(1, "Attr"), i(2, "Desc"), i(3, "Values")})),
