@@ -8,7 +8,7 @@ return {
                 options = {
                     styles = {
                         comments = "italic",
-                        strings = "italic",
+                        -- strings = "italic",
                     },
                 },
             })
