@@ -17,8 +17,6 @@ return {
             { m.ld("njy"), m.cmd("Neorg journal yesterday"),         desc = "[Y]esterdays Journal" },
             { m.ld("njT"), m.cmd("Neorg journal template"),          desc = "[T]emplate Journal" },
             { m.ld("njc"), ":Neorg journal custom ",                 desc = "[C]ustom Journal" },
-            { m.ld("nn"),  m.cmd("Neorg news new"),                  desc = "[N]ews in Neorg" },
-            { m.ld("nN"),  m.cmd("Neorg news all"),                  desc = "[N]ews in Neorg (All)" },
             { m.ld("nt"),  m.cmd("Neorg tangle current-file"),       desc = "[T]angle Code to file" },
             { m.ld("nu"),  m.cmd("Neorg upgrade current-file"),      desc = "[U]pgrades Current File" },
             { m.ld("nU"),  m.cmd("Neorg upgrade current-directory"), desc = "[U]pgrades Current Directory" },
