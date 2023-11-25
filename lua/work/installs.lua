@@ -9,6 +9,7 @@ return {
         "tsserver",
         "html",
         "ltex",
+        "intelephense",
         "powershell_es",
         "angularls",
     },
@@ -22,6 +23,7 @@ return {
         "typescript",
         "html",
         "latex",
+        "php",
         "gitignore",
     },
 }
