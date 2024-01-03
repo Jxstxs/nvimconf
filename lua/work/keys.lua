@@ -14,6 +14,9 @@ m.n(m.ld("L"), m.cmd("Lazy"), { desc = "Open [L]azy UI" })
 -- Exit Vim
 m.n(m.ld("Q"), m.cmd("qa!"), { desc = "[Q]uit Nvim" })
 
+-- Close Buffer
+m.n(m.ld("q"), m.cmd("bdelete!"), { desc = "[q]uit Buffer" })
+
 -- Reset Hightlights after search
 m.n(m.ld("r"), m.cmd("nohls"), { desc = "Reset [H]ighlights" })
 
