@@ -8,11 +8,6 @@ return {
         "parencite",
     },
 
-    document_classes = {
-        "article",
-        "handout",
-    },
-
     env_classes = {
         "document",
     },

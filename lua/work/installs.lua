@@ -6,7 +6,7 @@ return {
         "jsonls",
         "lua_ls",
         "sqlls",
-        "ltex",
+        "texlab",
         "tsserver",
         "html",
         "intelephense",

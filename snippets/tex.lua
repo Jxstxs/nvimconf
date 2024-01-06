@@ -23,7 +23,7 @@ local function get_current_date()
 end
 
 return {
-    s("docclass", fmt("\\documentclass{{{}}}", { c(1, table_to_snipobj(texEnv.document_classes, t)) })),
+    s("docclass", fmt("\\documentclass{{{}}}", { i(1, "class") })),
 
     s("title", fmt("\\title{{{}}}", { i(1, "title") })),
 
