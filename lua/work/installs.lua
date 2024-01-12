@@ -13,6 +13,7 @@ return {
         "cssls",
         "powershell_es",
         "angularls",
+        "lemminx",
     },
     ts = {
         "bash",
@@ -26,6 +27,7 @@ return {
         "html",
         "css",
         "php",
+        "xml",
         "gitignore",
     },
 }
