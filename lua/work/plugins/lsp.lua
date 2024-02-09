@@ -61,7 +61,8 @@ return {
             { m.ld("lw"), m.cmd("Lspsaga show_workspace_diagnostics"), desc = "Workspace Diagnostics" },
             { m.ld("lo"), m.cmd("Lspsaga outline"), desc = "Outline" },
             { m.ld("lh"), m.cmd("Lspsaga hover_doc"), desc = "Hover" },
-            { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"), desc = "Rename" },
+            { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"), desc = "Format" },
+            { m.ld("li"), m.lua("vim.lsp.buf.implementation({async=true})"), desc = "Implementation" },
         },
         config = function()
             require("lspsaga").setup({})
