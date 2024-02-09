@@ -29,5 +29,7 @@ return {
         "php",
         "xml",
         "gitignore",
+        "markdown",
+        "markdown_inline",
     },
 }
