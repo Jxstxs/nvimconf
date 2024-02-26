@@ -14,6 +14,7 @@ return {
         "powershell_es",
         "angularls",
         "lemminx",
+        "nil_ls",
     },
     ts = {
         "bash",
@@ -28,6 +29,7 @@ return {
         "css",
         "php",
         "xml",
+        "nix",
         "gitignore",
         "markdown",
         "markdown_inline",
