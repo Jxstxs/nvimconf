@@ -1,4 +1,4 @@
-local m = require("work.util").map
+local m = require("minimal.util").map
 
 return {
     {
@@ -7,31 +7,16 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
-            {
-                "SmiteshP/nvim-navbuddy",
-                keys = { { m.ld("N"), m.lua("require('nvim-navbuddy').open()"), desc = "Navbuddy" } },
-                dependencies = { "SmiteshP/nvim-navic", "MunifTanjim/nui.nvim" },
-                opts = {
-                    window = {
-                        size = "80%"
-                    },
-                    lsp = { auto_attach = true },
-                    source_buffer = {
-                        follow_node = true,
-                        highlight = true,
-                    },
-                },
-            },
         },
         build = ":MasonUpdate",
         keys = {
             { m.ld("M"), m.cmd("Mason"), desc = "Open [M]ason" },
         },
         config = function()
-            local to_install = require("work.installs")
+            local to_install = require("minimal.installs")
 
             require("mason").setup({
-                ui = { border = "single" },
+                ui = {  order = "single" },
             })
 
             require("mason-lspconfig").setup({
@@ -50,9 +35,10 @@ return {
     },
 
     {
-        "glepnir/lspsaga.nvim",
+        "nvimdev/lspsaga.nvim",
         event = "LspAttach",
         keys = {
+            -- TODO: Redo keybind commands
             { m.ld("d"), m.cmd("Lspsaga lsp_finder"), desc = "Lsp Finder" },
             { m.ld("la"), m.cmd("Lspsaga code_action"), desc = "Code Action" },
             { m.ld("lr"), m.cmd("Lspsaga rename ++project"), desc = "Rename" },
@@ -64,19 +50,9 @@ return {
             { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"), desc = "Format" },
             { m.ld("li"), m.lua("vim.lsp.buf.implementation({async=true})"), desc = "Implementation" },
         },
-        config = function()
-            require("lspsaga").setup({})
+        opts = {
 
-            -- local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
-            -- vim.api.nvim_create_autocmd("CursorHold", {
-            --     callback = function()
-            --            vim.api.nvim_exec("Lspsaga show_line_diagnostics ++unfocus", false)
-            --         -- FIX: look at on how to make it noice with flirt
-            --         -- vim.diagnostic.open_float()
-            --     end,
-            --     group = diag_float_grp,
-            -- })
-        end,
+        },
         dependencies = {
             { "nvim-tree/nvim-web-devicons" },
             { "nvim-treesitter/nvim-treesitter" },

@@ -1,4 +1,4 @@
-local m = require("work.util").map
+local m = require("minimal.util").map
 
 return {
     {
@@ -11,13 +11,14 @@ return {
         build = ":Neorg sync-parsers",
         ft = "norg",
         keys = {
+            -- TODO: Redo keybind commands
             { m.ld("nf"),  m.cmd("norm ggVG="),                      desc = "Formats a Neorg File" },
             { m.ld("njj"), m.cmd("Neorg journal today"),             desc = "todays [j]ournal" },
             { m.ld("njt"), m.cmd("Neorg journal tomorrow"),          desc = "[t]omorrows journal" },
             { m.ld("njy"), m.cmd("Neorg journal yesterday"),         desc = "[Y]esterdays Journal" },
             { m.ld("njT"), m.cmd("Neorg journal template"),          desc = "[T]emplate Journal" },
             { m.ld("njc"), ":Neorg journal custom ",                 desc = "[C]ustom Journal" },
-            { m.ld("nt"),  m.cmd("Neorg tangle current-file"),       desc = "[T]angle Code to file" },
+            { m.ld("nT"),  m.cmd("Neorg tangle current-file"),       desc = "[T]angle Code to file" },
             { m.ld("nu"),  m.cmd("Neorg upgrade current-file"),      desc = "[U]pgrades Current File" },
             { m.ld("nU"),  m.cmd("Neorg upgrade current-directory"), desc = "[U]pgrades Current Directory" },
             { m.ld("nF"),  m.cmd("Telescope neorg find_linkable"),   desc = "[F]inds Everything" },
@@ -29,12 +30,6 @@ return {
                     ["core.keybinds"] = {
                         config = {
                             hook = function(keybinds)
-                                -- keybinds.unmap("norg", "n", "gtd")
-                                -- keybinds.map("norg", "n", "gtd", "<cmd>echo 'Hello!'<CR>")
-                                -- keybinds.remap("norg", "n", "gtd", "<cmd>echo 'Hello!'<CR>")
-                                -- keybinds.remap_event( "norg", "n", "<C-Space>", "core.norg.qol.todo_items.todo.task_done")
-                                -- keybinds.remap_key("norg", "n", "<C-Space>", "<Leader>t")
-
                                 keybinds.remap_event("norg", "n", "<Space>ng", "core.looking-glass.magnify-code-block")
                             end,
                         },
@@ -42,8 +37,7 @@ return {
                     ["core.esupports.metagen"] = { config = { type = "auto" } },
                     ["core.journal"] = {
                         config = {
-                            journal_folder = "/doc/journal",
-                            workspace = "scholr",
+                            -- journal_folder = "/doc/journal", workspace = "scholr",
                         },
                     },
                     ["core.export"] = { config = {} },
@@ -62,8 +56,7 @@ return {
                     ["core.dirman"] = {
                         config = {
                             workspaces = {
-                                notes = "~/.repos/personal/notes/",
-                                scholr = "~/.repos/personal/schule/scholr/",
+                                -- scholr = "~/.repos/personal/schule/scholr/",
                             },
                             index = "index.norg",
                         },

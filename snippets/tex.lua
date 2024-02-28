@@ -1,6 +1,6 @@
 ---@diagnostic disable: unused-local, undefined-global
 
-local texEnv = require("work.latex.env")
+local texEnv = require("minimal.latex.env")
 
 local function copy(
     args,

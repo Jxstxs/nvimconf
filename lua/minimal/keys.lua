@@ -1,4 +1,4 @@
-local m = require("work.util").map
+local m = require("minimal.util").map
 
 -- Setting <leader>
 vim.keymap.set("", "<Space>", "<NOP>")

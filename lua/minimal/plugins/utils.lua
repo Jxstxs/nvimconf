@@ -1,13 +1,7 @@
----@diagnostic disable: deprecated
-local m = require("work.util").map
+local m = require("minimal.util").map
 
 return {
     { "wakatime/vim-wakatime",  event = "InsertEnter" },
-
-    {
-        "mfussenegger/nvim-lint",
-        event = "BufWritePost"
-    },
 
     {
         "folke/which-key.nvim",
@@ -76,6 +70,9 @@ return {
                         ["p"] = "git_push",
                     },
                 },
+            },
+            diagnostics = {
+                auto_preview = true,
             },
         },
     },

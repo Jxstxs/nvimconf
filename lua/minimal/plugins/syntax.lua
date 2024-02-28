@@ -1,12 +1,10 @@
-local m = require("work.util").map
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = require("work.installs").ts,
+                ensure_installed = require("minimal.installs").ts,
                 sync_install = false,
                 auto_install = true,
                 highlight = {
@@ -14,7 +12,7 @@ return {
                     additional_vim_regex_highlighting = false,
                 },
                 playground = {
-                    enable = true,
+                    enable = false,
                 },
                 query_linter = {
                     enable = true,

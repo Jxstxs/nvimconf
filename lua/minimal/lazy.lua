@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("work.plugins", {
+require("lazy").setup("minimal.plugins", {
     ui = { border = "single" },
     performance = {
         rtp = {

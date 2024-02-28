@@ -1,3 +1,3 @@
-require("work.options")
-require("work.keys")
-require("work.lazy")
+require("minimal.options")
+require("minimal.keys")
+require("minimal.lazy")

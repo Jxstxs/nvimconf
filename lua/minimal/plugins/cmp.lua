@@ -5,11 +5,9 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp-signature-help",
         "FelipeLema/cmp-async-path",
         "saadparwaiz1/cmp_luasnip",
         "doxnit/cmp-luasnip-choice",
-        "onsails/lspkind.nvim",
     },
     config = function()
         local has_words_before = function()
@@ -67,13 +65,12 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "cmp_luasnip_choice" },
+                { name = "async_path" },
                 { name = "buffer" },
                 { name = "neorg" },
                 { name = "nvim_lua" },
-                { name = "async_path" },
-                { name = "luasnip" },
-                { name = "cmp_luasnip_choice" },
-                { name = "nvim_lsp_signature_help" },
             }),
         })
     end,

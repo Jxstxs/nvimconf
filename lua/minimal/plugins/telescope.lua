@@ -1,4 +1,4 @@
-local m = require("work.util").map
+local m = require("minimal.util").map
 
 return {
     {
@@ -48,11 +48,6 @@ return {
             { m.ld("fgb"), m.cmd("Telescope git_branches"), desc = "[B]ranches" },
             { m.ld("fgc"), m.cmd("Telescope git_commits"), desc = "[C]ommits" },
             { m.ld("fgf"), m.cmd("Telescope git_bcommits"), desc = "[F]ile Commits" },
-            {
-                m.ld("f<CR>"),
-                m.cmd("lua require('telescope').extensions.menufacture.find_files()"),
-                desc = "[F]ind Files",
-            },
         },
         config = function()
             local ts = require("telescope")
