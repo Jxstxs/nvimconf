@@ -34,29 +34,4 @@ return {
             end
         end,
     },
-
-    {
-        "nvimdev/lspsaga.nvim",
-        event = "LspAttach",
-        keys = {
-            -- TODO: Redo keybind commands
-            { m.ld("d"), m.cmd("Lspsaga lsp_finder"), desc = "Lsp Finder" },
-            { m.ld("la"), m.cmd("Lspsaga code_action"), desc = "Code Action" },
-            { m.ld("lr"), m.cmd("Lspsaga rename ++project"), desc = "Rename" },
-            { m.ld("lp"), m.cmd("Lspsaga peek_definition"), desc = "Peek Def" },
-            { m.ld("lg"), m.cmd("Lspsaga goto_definition"), desc = "Goto Def" },
-            { m.ld("lw"), m.cmd("Lspsaga show_workspace_diagnostics"), desc = "Workspace Diagnostics" },
-            { m.ld("lo"), m.cmd("Lspsaga outline"), desc = "Outline" },
-            { m.ld("lh"), m.cmd("Lspsaga hover_doc"), desc = "Hover" },
-            { m.ld("lf"), m.lua("vim.lsp.buf.format({async=true})"), desc = "Format" },
-            { m.ld("li"), m.lua("vim.lsp.buf.implementation({async=true})"), desc = "Implementation" },
-        },
-        opts = {
-
-        },
-        dependencies = {
-            { "nvim-tree/nvim-web-devicons" },
-            { "nvim-treesitter/nvim-treesitter" },
-        },
-    },
 }
