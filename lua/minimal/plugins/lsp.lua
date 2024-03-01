@@ -14,9 +14,10 @@ return {
         },
         config = function()
             local to_install = require("minimal.installs")
+            local lspconfig = require("lspconfig")
 
             require("mason").setup({
-                ui = {  order = "single" },
+                ui = { order = "single" },
             })
 
             require("mason-lspconfig").setup({
@@ -27,7 +28,7 @@ return {
             local capabilities =
                 require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
             for _, v in ipairs(to_install["lsps"]) do
-                require("lspconfig")[v].setup({
+                lspconfig[v].setup({
                     capabilities = capabilities,
                 })
             end
