@@ -6,10 +6,9 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "molecule-man/telescope-menufacture",
-            "Snikimonkd/telescope-git-conflicts.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
-        keys = require("minimal.telescope_keys"),
+        keys = require("minimal.telescope_keys").base,
         config = function()
             local ts = require("telescope")
             local actions = require("telescope.actions")
@@ -42,7 +41,17 @@ return {
             ts.load_extension("fzf")
             ts.load_extension("noice")
             ts.load_extension("menufacture")
-            ts.load_extension("conflicts")
         end,
     },
+
+    {
+        "Snikimonkd/telescope-git-conflicts.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
+        keys = require("minimal.telescope_keys").git_conflicts,
+        config = function()
+            require("telescope").load_extension("conflicts")
+        end
+    }
 }
