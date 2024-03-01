@@ -19,11 +19,6 @@ return {
         desc = "[H]elp Tags",
     },
     {
-        m.ld("fu"),
-        m.lua("require('telescope').extensions.undo.undo()"),
-        desc = "Undo",
-    },
-    {
         m.ld("fd"),
         m.cmd("Telescope diagnostics"),
         desc = "[D]iagnostics",
