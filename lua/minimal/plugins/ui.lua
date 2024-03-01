@@ -2,13 +2,6 @@ local m = require("minimal.util").map
 
 return {
     {
-        "EdenEast/nightfox.nvim",
-        config = function()
-            -- require("nightfox").setup({ options = { styles = { comments = "italic", }, }, })
-        end,
-    },
-
-    {
         "Sly-Harvey/radium.nvim",
         config = function()
             require("radium").setup({})
