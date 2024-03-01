@@ -7,6 +7,7 @@ return {
             "nvim-lua/plenary.nvim",
             "molecule-man/telescope-menufacture",
             "debugloop/telescope-undo.nvim",
+            "Snikimonkd/telescope-git-conflicts.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         keys = require("minimal.telescope_keys"),
@@ -43,6 +44,7 @@ return {
             ts.load_extension("noice")
             ts.load_extension("menufacture")
             ts.load_extension("undo")
+            ts.load_extension("conflicts")
         end,
     },
 }
