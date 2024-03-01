@@ -28,6 +28,7 @@ return {
             },
             presets = {
                 long_message_to_split = false,
+                lsp_doc_border = true,
             },
             views = {
                 cmdline_popup = {
