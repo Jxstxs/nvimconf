@@ -12,7 +12,6 @@ return {
         "cssls",
         "powershell_es",
         "angularls",
-        "nil_ls",
     },
     ts = {
         "bash",
@@ -25,7 +24,6 @@ return {
         "typescript",
         "html",
         "css",
-        "nix",
         "gitignore",
         "markdown",
         "markdown_inline",
