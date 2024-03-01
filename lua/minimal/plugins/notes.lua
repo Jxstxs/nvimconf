@@ -11,17 +11,9 @@ return {
         build = ":Neorg sync-parsers",
         ft = "norg",
         keys = {
-            -- TODO: Redo keybind commands
-            { m.ld("nf"),  m.cmd("norm ggVG="),                      desc = "Formats a Neorg File" },
-            { m.ld("njj"), m.cmd("Neorg journal today"),             desc = "todays [j]ournal" },
-            { m.ld("njt"), m.cmd("Neorg journal tomorrow"),          desc = "[t]omorrows journal" },
-            { m.ld("njy"), m.cmd("Neorg journal yesterday"),         desc = "[Y]esterdays Journal" },
-            { m.ld("njT"), m.cmd("Neorg journal template"),          desc = "[T]emplate Journal" },
-            { m.ld("njc"), ":Neorg journal custom ",                 desc = "[C]ustom Journal" },
-            { m.ld("nT"),  m.cmd("Neorg tangle current-file"),       desc = "[T]angle Code to file" },
-            { m.ld("nu"),  m.cmd("Neorg upgrade current-file"),      desc = "[U]pgrades Current File" },
-            { m.ld("nU"),  m.cmd("Neorg upgrade current-directory"), desc = "[U]pgrades Current Directory" },
-            { m.ld("nF"),  m.cmd("Telescope neorg find_linkable"),   desc = "[F]inds Everything" },
+            { m.ld("nf"), m.cmd("norm ggVG="),                    desc = "Formats a Neorg File" },
+            { m.ld("nT"), m.cmd("Neorg tangle current-file"),     desc = "[T]angle Code to file" },
+            { m.ld("nF"), m.cmd("Telescope neorg find_linkable"), desc = "[F]inds Everything" },
         },
         config = function()
             require("neorg").setup({
@@ -35,11 +27,6 @@ return {
                         },
                     },
                     ["core.esupports.metagen"] = { config = { type = "auto" } },
-                    ["core.journal"] = {
-                        config = {
-                            -- journal_folder = "/doc/journal", workspace = "scholr",
-                        },
-                    },
                     ["core.export"] = { config = {} },
                     ["core.export.markdown"] = { config = { extensions = { "all" } } },
                     ["core.completion"] = { config = { engine = "nvim-cmp" } },
@@ -53,20 +40,11 @@ return {
                             },
                         },
                     },
-                    ["core.dirman"] = {
-                        config = {
-                            workspaces = {
-                                -- scholr = "~/.repos/personal/schule/scholr/",
-                            },
-                            index = "index.norg",
-                        },
-                    },
                     ["core.integrations.telescope"] = {},
                 },
             })
 
-            ---@diagnostic disable-next-line: unused-local
-            local autogroup = vim.api.nvim_create_augroup("winerau", { clear = true })
+            local _ = vim.api.nvim_create_augroup("winerau", { clear = true })
 
             vim.api.nvim_create_autocmd({ "FileType" }, {
                 group = "winerau",
