@@ -65,12 +65,12 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
+                { name = "nvim_lua" },
                 { name = "luasnip" },
                 { name = "cmp_luasnip_choice" },
                 { name = "async_path" },
                 { name = "buffer" },
                 { name = "neorg" },
-                { name = "nvim_lua" },
             }),
         })
     end,
