@@ -27,6 +27,11 @@ return {
             end,
             desc = "[P]lugin files",
         },
+        {
+            m.ld("fs"),
+            m.lua("require('telescope.builtin').spell_suggest()"),
+            desc = "[S]pell Suggestions",
+        },
         { m.ld("fgb"), m.cmd("Telescope git_branches"),                                      desc = "[B]ranches" },
         { m.ld("fgc"), m.cmd("Telescope git_commits"),                                       desc = "[C]ommits" },
         { m.ld("fgf"), m.cmd("Telescope git_bcommits"),                                      desc = "[F]ile Commits" },
