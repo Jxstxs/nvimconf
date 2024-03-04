@@ -1,7 +1,6 @@
 if vim.g.neovide then
-    vim.opt.guifont = { "Victor Mono Thin Nerd Font Complete", "h7" }
-
-    vim.g.neovide_transparency = 0.8
+    -- vim.opt.guifont = { "Victor Mono Thin Nerd Font Complete", "h7" }
+    vim.g.neovide_transparency = 0.97
 end
 
 vim.opt.backup = false
