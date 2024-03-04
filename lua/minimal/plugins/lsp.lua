@@ -45,7 +45,7 @@ return {
                     u.merge_tbl(opts, { desc = "[I]mplementations" }))
                 bsk(m.ld("lr"), m.lua("require('telescope.builtin').lsp_references()"),
                     u.merge_tbl(opts, { desc = "[R]eferences" }))
-                bsk(m.ld("lD"), m.lua("require('telescope.builtin').lsp_diagnostics()"),
+                bsk(m.ld("lD"), m.lua("require('telescope.builtin').diagnostics()"),
                     u.merge_tbl(opts, { desc = "[D]iagnostics" }))
 
                 bsk(m.ld("lh"), m.lua("vim.lsp.buf.hover()"),
