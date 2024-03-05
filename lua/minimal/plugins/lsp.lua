@@ -60,6 +60,16 @@ return {
                     u.merge_tbl(opts, { desc = "Prev Diagnostic" }))
                 bsk(m.ld("la"), m.lua("vim.lsp.codelens.run()"),
                     u.merge_tbl(opts, { desc = "Code [A]ction" }))
+
+                vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#ff0000" })
+                vim.api.nvim_set_hl(0, "LspReferenceRead", { fg = "#ffa500" })
+                vim.api.nvim_set_hl(0, "LspReferenceWrite", { fg = "#00ffff" })
+
+                vim.cmd([[
+                    autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+                    autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+                    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                ]])
             end
 
             local capabilities =
