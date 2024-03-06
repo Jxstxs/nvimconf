@@ -1,5 +1,3 @@
-local m = require("minimal.util").map
-
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -23,6 +21,16 @@ return {
                             ["<C-k>"] = actions.move_selection_previous,
                         },
                     },
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        vertical = {
+                            preview_cutoff = 1,
+                            preview_height = 0.7,
+
+                            width = 0.9,
+                            height = 0.9,
+                        }
+                    }
                 },
                 extensions = {
                     fzf = {
