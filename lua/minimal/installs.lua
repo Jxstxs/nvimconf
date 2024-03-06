@@ -12,6 +12,7 @@ return {
         "cssls",
         "powershell_es",
         "angularls",
+        "emmet_ls",
     },
     ts = {
         "bash",
