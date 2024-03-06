@@ -31,6 +31,10 @@ return {
 
                 local opts = { noremap = true, silent = true }
 
+                vim.diagnostic.config({
+                    float = { border = "rounded", focusable = false }
+                })
+
                 bsk(m.ld("ld"), m.lua("require('telescope.builtin').lsp_definitions()"),
                     u.merge_tbl(opts, { desc = "[D]efinitions" }))
                 bsk(m.ld("ls"), m.lua("require('telescope.builtin').lsp_document_symbols()"),
