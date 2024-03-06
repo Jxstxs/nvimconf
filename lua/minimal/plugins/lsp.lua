@@ -26,12 +26,8 @@ return {
                 automatic_installation = true,
             })
 
-            local on_attach = function(_, bufnr)
+            local on_attach = function(client, bufnr)
                 local function bsk(...) vim.api.nvim_buf_set_keymap(bufnr, "n", ...) end
-
-                local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-                buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
                 local opts = { noremap = true, silent = true }
 
@@ -61,15 +57,29 @@ return {
                 bsk(m.ld("la"), m.lua("vim.lsp.codelens.run()"),
                     u.merge_tbl(opts, { desc = "Code [A]ction" }))
 
-                vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#ff0000" })
-                vim.api.nvim_set_hl(0, "LspReferenceRead", { fg = "#ffa500" })
-                vim.api.nvim_set_hl(0, "LspReferenceWrite", { fg = "#00ffff" })
+                if client.server_capabilities.documentHighlightProvider then
+                    vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#ff0000" })
+                    vim.api.nvim_set_hl(0, "LspReferenceRead", { fg = "#ffa500" })
+                    vim.api.nvim_set_hl(0, "LspReferenceWrite", { fg = "#00ffff" })
 
-                vim.cmd([[
-                    autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
-                    autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-                    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-                ]])
+                    vim.api.nvim_create_augroup("lsp_doc_highlight", { clear = true })
+                    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = "lsp_doc_highlight" })
+
+                    vim.api.nvim_create_autocmd("CursorHold",
+                        {
+                            callback = vim.lsp.buf.document_highlight,
+                            group = "lsp_doc_highlight",
+                            desc =
+                            "Highlight Current Symbol"
+                        })
+                    vim.api.nvim_create_autocmd("CursorMoved",
+                        {
+                            callback = vim.lsp.buf.clear_references,
+                            group = "lsp_doc_highlight",
+                            desc =
+                            "clear Highlighted Symbol"
+                        })
+                end
             end
 
             local capabilities =
