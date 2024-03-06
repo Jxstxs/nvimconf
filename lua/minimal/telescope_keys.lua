@@ -19,7 +19,7 @@ return {
             m.lua("require('telescope.builtin').help_tags()"),
             desc = "[H]elp Tags",
         },
-        { m.ld("fl"),  m.cmd("lua require('telescope').extensions.menufacture.live_grep()"), desc = "[L]ive Grep" },
+        { m.ld("fl"), m.cmd("lua require('telescope').extensions.menufacture.live_grep()"), desc = "[L]ive Grep" },
         {
             m.ld("fp"),
             function()
@@ -32,9 +32,26 @@ return {
             m.lua("require('telescope.builtin').spell_suggest()"),
             desc = "[S]pell Suggestions",
         },
-        { m.ld("fgb"), m.cmd("Telescope git_branches"),                                      desc = "[B]ranches" },
-        { m.ld("fgc"), m.cmd("Telescope git_commits"),                                       desc = "[C]ommits" },
-        { m.ld("fgf"), m.cmd("Telescope git_bcommits"),                                      desc = "[F]ile Commits" },
+        {
+            m.ld("fF"),
+            m.lua("require('telescope.builtin').current_buffer_fuzzy_find()"),
+            desc = "[Fuzzy] Current Buffer",
+        },
+        {
+            m.ld("fgb"),
+            m.lua("require('telescope.builtin').git_branches()"),
+            desc = "[B]ranches",
+        },
+        {
+            m.ld("fgc"),
+            m.lua("require('telescope.builtin').git_commits()"),
+            desc = "[C]ommits",
+        },
+        {
+            m.ld("fgf"),
+            m.lua("require('telescope.builtin').git_bcommits()"),
+            desc = "[F]ile Commits",
+        },
     },
     git_conflicts = {
         {
