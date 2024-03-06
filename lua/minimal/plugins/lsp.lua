@@ -52,6 +52,8 @@ return {
 
                 bsk(m.ld("lh"), m.lua("vim.lsp.buf.hover()"),
                     u.merge_tbl(opts, { desc = "[H]over" }))
+                bsk(m.ld("lH"), m.lua("vim.diagnostic.open_float()"),
+                    u.merge_tbl(opts, { desc = "[H]over Diagnostic" }))
                 bsk(m.ld("lf"), m.lua("vim.lsp.buf.format()"),
                     u.merge_tbl(opts, { desc = "[F]ormat" }))
                 bsk(m.ld("lR"), m.lua("vim.lsp.buf.rename()"),
