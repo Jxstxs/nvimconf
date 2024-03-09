@@ -62,7 +62,7 @@ return {
                     u.merge_tbl(opts, { desc = "[N]ext Diagnostic" }))
                 bsk(m.ld("lN"), m.lua("vim.diagnostic.goto_prev()"),
                     u.merge_tbl(opts, { desc = "Prev Diagnostic" }))
-                bsk(m.ld("la"), m.lua("vim.lsp.codelens.run()"),
+                bsk(m.ld("la"), m.lua("vim.lsp.buf.code_action()"),
                     u.merge_tbl(opts, { desc = "Code [A]ction" }))
 
                 if client.server_capabilities.documentHighlightProvider then
