@@ -6,11 +6,11 @@ return {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
         keys = {
-            { m.ld("gp"), m.cmd("Gitsigns preview_hunk"),              desc = "[P]review Hunk" },
-            { m.ld("gb"), m.cmd("Gitsigns toggle_current_line_blame"), desc = "Line [B]lame" },
-            { m.ld("gr"), m.cmd("Gitsigns reset_hunk"),                desc = "[R]eset Hunk" },
-            { m.ld("gl"), m.cmd("Gitsigns toggle_linehl"),             desc = "[L]ine Highlight" },
-            { m.ld("gd"), m.cmd("Gitsigns toggle_deleted"),            desc = "Show [D]eleted" },
+            { m.ld("Gp"), m.cmd("Gitsigns preview_hunk"),              desc = "[P]review Hunk" },
+            { m.ld("Gb"), m.cmd("Gitsigns toggle_current_line_blame"), desc = "Line [B]lame" },
+            { m.ld("Gr"), m.cmd("Gitsigns reset_hunk"),                desc = "[R]eset Hunk" },
+            { m.ld("Gl"), m.cmd("Gitsigns toggle_linehl"),             desc = "[L]ine Highlight" },
+            { m.ld("Gd"), m.cmd("Gitsigns toggle_deleted"),            desc = "Show [D]eleted" },
         },
         opts = {
             numhl = true,
@@ -23,6 +23,12 @@ return {
             "nvim-lua/plenary.nvim",
             "sindrets/diffview.nvim",
         },
-        opts = {},
+        keys = {
+            { m.ld("g"), m.cmd("Neogit"), desc = "Neo[g]it" },
+        },
+        opts = {
+            graph_style = "unicode",
+            disable_line_numbers = false,
+        },
     },
 }
