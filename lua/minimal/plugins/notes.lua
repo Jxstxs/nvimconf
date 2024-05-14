@@ -7,8 +7,9 @@ return {
             "nvim-lua/plenary.nvim",
             { "nvim-neorg/neorg-telescope", dependencies = { "nvim-telescope/telescope.nvim" } },
             "nvim-treesitter/nvim-treesitter",
+            "vhyrro/luarocks.nvim",
         },
-        build = ":Neorg sync-parsers",
+        -- build = ":Neorg sync-parsers",
         ft = "norg",
         keys = {
             { m.ld("nf"), m.cmd("norm ggVG="),                    desc = "Formats a Neorg File" },
