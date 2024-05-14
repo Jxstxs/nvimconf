@@ -13,6 +13,7 @@ return {
         "powershell_es",
         "angularls",
         "emmet_ls",
+        "jdtls",
     },
     ts = {
         "bash",
