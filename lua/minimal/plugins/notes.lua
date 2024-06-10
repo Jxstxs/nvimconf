@@ -3,6 +3,7 @@ local m = require("minimal.util").map
 return {
     {
         "nvim-neorg/neorg",
+        version = "v7.0.0",
         dependencies = {
             "nvim-lua/plenary.nvim",
             { "nvim-neorg/neorg-telescope", dependencies = { "nvim-telescope/telescope.nvim" } },
