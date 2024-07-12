@@ -168,4 +168,9 @@ return {
         }), -- Inherritence
         i(7, "// Body"),
     })),
+
+    s("mapping", fmt([[
+    .ForMember(dest => dest.{},
+        opts => opts.MapFrom(src => src.{}))
+    ]], { i(1, "dest"), i(2, "src") })),
 }
