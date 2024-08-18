@@ -1,20 +1,6 @@
 local m = require("minimal.util").map
 
 return {
-    { "wakatime/vim-wakatime",  event = "InsertEnter" },
-
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-        opts = {
-            window = { border = "single" }
-        },
-    },
-
     {
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
@@ -76,62 +62,9 @@ return {
             },
         },
     },
-
-    {
-        "L3MON4D3/LuaSnip",
-        event = "InsertEnter",
-        config = function()
-            local ls = require("luasnip")
-            ls.setup({
-                snip_env = {
-                    s = function(...)
-                        local snip = ls.s(...)
-                        table.insert(getfenv(2).ls_file_snippets, snip)
-                    end,
-                    parse = function(...)
-                        local snip = ls.parser.parse_snippet(...)
-                        table.insert(getfenv(2).ls_file_snippets, snip)
-                    end,
-                    sn = ls.snippet_node,
-                    t = ls.text_node,
-                    i = ls.insert_node,
-                    f = ls.function_node,
-                    c = ls.choice_node,
-                    d = ls.dynamic_node,
-                    l = require("luasnip.extras").lambda,
-                    r = require("luasnip.extras").rep,
-                    p = require("luasnip.extras").partial,
-                    m = require("luasnip.extras").match,
-                    n = require("luasnip.extras").nonempty,
-                    dl = require("luasnip.extras").dynamic_lambda,
-                    fmt = require("luasnip.extras.fmt").fmt,
-                    fmta = require("luasnip.extras.fmt").fmta,
-                    types = require("luasnip.util.types"),
-                    conds = require("luasnip.extras.expand_conditions"),
-                    events = require("luasnip.util.events"),
-                },
-            })
-
-            require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets" })
-            vim.cmd([[
-            imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-            smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-            ]])
-        end,
-    },
-
     {
         "numToStr/Comment.nvim",
         event = "InsertEnter",
-    },
-
-    {
-        "danymat/neogen",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        keys = {
-            { m.ld("G"), m.lua("require('neogen').generate()"), desc = "Generate Annotation" },
-        },
-        opts = { snippet_engine = "luasnip" },
     },
 
     {

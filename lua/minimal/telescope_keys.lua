@@ -4,7 +4,7 @@ return {
     base = {
         {
             m.ld("ff"),
-            m.lua("require('telescope').extensions.menufacture.find_files()"),
+            m.lua("require('telescope.builtin').find_files()"),
             desc = "[F]ind Files",
         },
         {
@@ -19,7 +19,6 @@ return {
             m.lua("require('telescope.builtin').help_tags()"),
             desc = "[H]elp Tags",
         },
-        { m.ld("fl"), m.cmd("lua require('telescope').extensions.menufacture.live_grep()"), desc = "[L]ive Grep" },
         {
             m.ld("fp"),
             function()
@@ -53,11 +52,4 @@ return {
             desc = "[F]ile Commits",
         },
     },
-    git_conflicts = {
-        {
-            m.ld("fgC"),
-            m.lua("require('telescope').extensions.conflicts.conflicts({})"),
-            desc = "[C]onflicts",
-        },
-    }
 }
