@@ -7,7 +7,7 @@ return {
         "lua_ls",
         "sqlls",
         "texlab",
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         "powershell_es",
