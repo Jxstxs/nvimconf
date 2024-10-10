@@ -1,11 +1,23 @@
 local m = require("minimal.util").map
 
 return {
+    -- { "Sly-Harvey/radium.nvim", config = function() require("radium").setup({}) end },
     {
-        "Sly-Harvey/radium.nvim",
+        "0xstepit/flow.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
         config = function()
-            require("radium").setup({})
-        end
+            require("flow").setup {
+                dark_theme = true,
+                transparent = true,
+                high_contrast = false,
+                fluo_color = "pink",
+                mode = "desaturate",
+                aggressive_spell = false,
+            }
+            vim.cmd "colorscheme flow"
+        end,
     },
 
     {
