@@ -1,7 +1,17 @@
 local m = require("minimal.util").map
 
 return {
-    { "wakatime/vim-wakatime",  event = "InsertEnter" },
+    { "wakatime/vim-wakatime", event = "InsertEnter" },
+
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    },
 
     {
         "folke/which-key.nvim",
