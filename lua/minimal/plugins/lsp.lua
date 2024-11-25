@@ -8,18 +8,21 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
+            "nvim-java/nvim-java",
         },
         build = ":MasonUpdate",
         keys = {
             { m.ld("M"), m.cmd("Mason"), desc = "Open [M]ason" },
         },
-        config = function()
+        config = function(_, opts)
             local to_install = require("minimal.installs")
             local lspconfig = require("lspconfig")
 
-            require("mason").setup({
+            local localOpts = vim.tbl_deep_extend('keep', opts, {
                 ui = { order = "single" },
             })
+
+            require("mason").setup(localOpts)
 
             require("mason-lspconfig").setup({
                 ensure_installed = to_install["lsps"],
@@ -89,6 +92,8 @@ return {
                         })
                 end
             end
+
+            require('java').setup()
 
             local capabilities =
                 require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())

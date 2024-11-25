@@ -14,6 +14,7 @@ return {
         "angularls",
         "emmet_ls",
         "jdtls",
+        "lemminx",
     },
     ts = {
         "bash",
