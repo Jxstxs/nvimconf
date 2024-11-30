@@ -76,7 +76,9 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufRead",
-        opts = {},
+        config = function()
+            require("ibl").setup({})
+        end,
     },
 
     { "stevearc/dressing.nvim" },

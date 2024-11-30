@@ -80,12 +80,12 @@ return {
                 bsk(m.ld("la"), m.lua("vim.lsp.buf.code_action()"),
                     u.merge_tbl(opts, { desc = "Code [A]ction" }))
 
-                bsk(m.ld("dc"), m.lua("require('dap').continue()"))
-                bsk(m.ld("dc"), m.lua("require('dap').step_over()"))
-                bsk(m.ld("dc"), m.lua("require('dap').step_into()"))
-                bsk(m.ld("dc"), m.lua("require('dap').step_out()"))
-                bsk(m.ld("dc"), m.lua("require('dap').toggle_breakpoint()"))
-                bsk(m.ld("dc"), m.lua("require('dap').terminate()"))
+                bsk(m.ld("dc"), m.lua("require('dap').continue()"), u.merge_tbl(opts, { desc = "[C]ontinue" }))
+                bsk(m.ld("do"), m.lua("require('dap').step_over()"), u.merge_tbl(opts, { desc = "Step [O]ver" }))
+                bsk(m.ld("di"), m.lua("require('dap').step_into()"), u.merge_tbl(opts, { desc = "Step [I]nto" }))
+                bsk(m.ld("dO"), m.lua("require('dap').step_out()"), u.merge_tbl(opts, { desc = "Step [O]ut" }))
+                bsk(m.ld("db"), m.lua("require('dap').toggle_breakpoint()"), u.merge_tbl(opts, { desc = "Toggle [B]reakpoint" }))
+                bsk(m.ld("dt"), m.lua("require('dap').terminate()"), u.merge_tbl(opts, { desc = "[T]erminate" }))
 
                 if client.server_capabilities.documentHighlightProvider then
                     vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#ff0000" })
