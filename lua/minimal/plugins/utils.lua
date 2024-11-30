@@ -139,7 +139,7 @@ return {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
         keys = {
-            { m.ld("G"), m.lua("require('neogen').generate()"), desc = "Generate Annotation" },
+            { m.ld("Gg"), m.lua("require('neogen').generate()"), desc = "Generate Annotation" },
         },
         opts = { snippet_engine = "luasnip" },
     },
@@ -147,9 +147,7 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end,
+        opts = {},
     },
 
     {

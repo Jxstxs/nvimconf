@@ -6,7 +6,6 @@ return {
         "0xstepit/flow.nvim",
         lazy = false,
         priority = 1000,
-        opts = {},
         config = function()
             require("flow").setup {
                 dark_theme = true,
@@ -77,9 +76,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufRead",
-        config = function()
-            require("ibl").setup({})
-        end,
+        opts = {},
     },
 
     { "stevearc/dressing.nvim" },
