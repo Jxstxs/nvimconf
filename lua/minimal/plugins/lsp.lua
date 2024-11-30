@@ -8,6 +8,7 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
+            { "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
             "nvim-java/nvim-java",
         },
         build = ":MasonUpdate",
@@ -28,6 +29,17 @@ return {
                 ensure_installed = to_install["lsps"],
                 automatic_installation = true,
             })
+
+            local dap, dapui = require("dap"), require("dapui")
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
 
             local on_attach = function(client, bufnr)
                 local function bsk(...) vim.api.nvim_buf_set_keymap(bufnr, "n", ...) end
@@ -67,6 +79,13 @@ return {
                     u.merge_tbl(opts, { desc = "Prev Diagnostic" }))
                 bsk(m.ld("la"), m.lua("vim.lsp.buf.code_action()"),
                     u.merge_tbl(opts, { desc = "Code [A]ction" }))
+
+                bsk(m.ld("dc"), m.lua("require('dap').continue()"))
+                bsk(m.ld("dc"), m.lua("require('dap').step_over()"))
+                bsk(m.ld("dc"), m.lua("require('dap').step_into()"))
+                bsk(m.ld("dc"), m.lua("require('dap').step_out()"))
+                bsk(m.ld("dc"), m.lua("require('dap').toggle_breakpoint()"))
+                bsk(m.ld("dc"), m.lua("require('dap').terminate()"))
 
                 if client.server_capabilities.documentHighlightProvider then
                     vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#ff0000" })
