@@ -8,41 +8,23 @@ return {
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
-            { "rcarriga/nvim-dap-ui", opts = {}, dependencies = { "nvim-neotest/nvim-nio" } },
-            "nvim-java/nvim-java",
         },
         build = ":MasonUpdate",
         keys = {
             { m.ld("M"), m.cmd("Mason"), desc = "Open [M]ason" },
         },
-        config = function(_, opts)
+        config = function()
             local to_install = require("minimal.installs")
             local lspconfig = require("lspconfig")
 
-            local localOpts = vim.tbl_deep_extend('keep', opts, {
+            require("mason").setup({
                 ui = { order = "single" },
             })
-
-            require("mason").setup(localOpts)
 
             require("mason-lspconfig").setup({
                 ensure_installed = to_install["lsps"],
                 automatic_installation = true,
             })
-
-            local dap, dapui = require("dap"), require("dapui")
-            dap.listeners.before.attach.dapui_config = function()
-                dapui.open()
-            end
-            dap.listeners.before.launch.dapui_config = function()
-                dapui.open()
-            end
-            dap.listeners.before.event_terminated.dapui_config = function()
-                dapui.close()
-            end
-            dap.listeners.before.event_exited.dapui_config = function()
-                dapui.close()
-            end
 
             local on_attach = function(client, bufnr)
                 local function bsk(...) vim.api.nvim_buf_set_keymap(bufnr, "n", ...) end
@@ -83,14 +65,6 @@ return {
                 bsk(m.ld("la"), m.lua("vim.lsp.buf.code_action()"),
                     u.merge_tbl(opts, { desc = "Code [A]ction" }))
 
-                bsk(m.ld("dc"), m.lua("require('dap').continue()"), u.merge_tbl(opts, { desc = "[C]ontinue" }))
-                bsk(m.ld("do"), m.lua("require('dap').step_over()"), u.merge_tbl(opts, { desc = "Step [O]ver" }))
-                bsk(m.ld("di"), m.lua("require('dap').step_into()"), u.merge_tbl(opts, { desc = "Step [I]nto" }))
-                bsk(m.ld("dO"), m.lua("require('dap').step_out()"), u.merge_tbl(opts, { desc = "Step [O]ut" }))
-                bsk(m.ld("db"), m.lua("require('dap').toggle_breakpoint()"),
-                    u.merge_tbl(opts, { desc = "Toggle [B]reakpoint" }))
-                bsk(m.ld("dt"), m.lua("require('dap').terminate()"), u.merge_tbl(opts, { desc = "[T]erminate" }))
-
                 if client.server_capabilities.documentHighlightProvider then
                     vim.api.nvim_set_hl(0, "LspReferenceText", { fg = "#ff0000" })
                     vim.api.nvim_set_hl(0, "LspReferenceRead", { fg = "#ffa500" })
@@ -115,8 +89,6 @@ return {
                         })
                 end
             end
-
-            require('java').setup()
 
             local capabilities =
                 require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
